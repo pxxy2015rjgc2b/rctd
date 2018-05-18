@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="exportAction" class="com.rctd.action.export.ExportAction" scope="prototype">
+		<property name="exportService" ref="exportService"></property>
+	</bean>	
+	<bean id="exportService" class="com.rctd.service.impl.export.ExportServiceImpl">
+		<property name="exportDao" ref="exportDao"></property>
+	</bean>	
+	<bean id="exportDao" class="com.rctd.dao.impl.export.ExportDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+</beans>
