@@ -44,16 +44,15 @@ public class UserAction extends ActionSupport {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		if (!userService.judgeUserByUsername(user_username)) {
-			pw.write("UserNoExist");
+			pw.write("userNoExist");
 		} else {
 			rctd_user user = userService.getUserByUsername(user_username);
-			String password = "noexsit";
+			String password = user_password;
 			if (user.getUser_password().equals(password)) {
 				pw.write("loginSuccess");
 				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
-				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
 			} else {
-				pw.write("PasswordError");
+				pw.write("passwordError");
 			}
 		}
 	}

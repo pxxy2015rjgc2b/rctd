@@ -1,13 +1,32 @@
 body{
-	background-color:#34495E; 
+	background:#2A6496;
 }
-.bg{
-	background:#285E8E;
-	border: white solid 5px ;
+.contain{
+	width: 1000px;
+	height:800px;
+}
+.left{
 	width: 500px;
-	height: 320px;
-	border-radius: 10px;
-	margin-top: 150px;
+	height: 800px;
+	float: left;
+}
+.login-left{
+	opacity: 0;
+	width:400px;
+	height: 0px;
+	margin-top: 120px;
+	
+}
+.right{
+	width: 500px;
+	height: 800px;
+	float: left;
+	}
+.login-right{
+	width:450px;
+	height: 250px;
+	margin-top: 200px;
+	opacity: 0;
 }
 .login-input-area{
 	width: 400px;
@@ -18,4 +37,14 @@ body{
 	position:relative;
 	left: 100px;
 	}
+.picture{
+	height: 250px;
+	width: 450px;
+	background:url(../img/login-bg.jpg);
+	border-radius: 20px;
+	border: white solid 2px;
 	
+}
+	
+
+		

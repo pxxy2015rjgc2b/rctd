@@ -4,8 +4,8 @@
 <!-- Generated 2018-5-18 16:07:42 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.rctd.domain.DO.rctd_user" table="RCTD_USER">
-        <id name="user_id" type="java.lang.String">
-            <column name="USER_ID" />
+        <id name="rctd_user_id" type="java.lang.String">
+            <column name="RCTD_USER_ID" />
             <generator class="assigned" />
         </id>
         <property name="user_name" type="java.lang.String">
