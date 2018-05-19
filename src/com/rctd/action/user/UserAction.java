@@ -51,7 +51,6 @@ public class UserAction extends ActionSupport{
 				pw.write("success");
 				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
 				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
-				
 			}
 		}
 }

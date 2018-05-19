@@ -11,7 +11,6 @@
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
 	<div class="bg center-block">
 	<br>	
 	<h2 class="text-center" style="color: white;">人创天地有限公司账目管理系统</h2>
@@ -35,8 +34,6 @@
 	 	</div>
 
    </div>
-=======
-fdsahfdsjakfhdskja
->>>>>>> origin/LYH
+
 </body>
 </html>
