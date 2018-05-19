@@ -1,4 +1,5 @@
 var xmlHttp;
+//加载动画
 window.onload=function() {
 	 $(function(){
 	    var div1=$('.login-left');
@@ -7,12 +8,14 @@ window.onload=function() {
 	    div2.animate({opacity:'1'},3000);
 	  });
 	}
+//回车事件
 document.onkeydown = keyLogin;
 function keyLogin(event) {
 	if (event.keyCode == 13) {
 		login();
 	}
 }
+//登录
 function login() {
 	getXmlHttp();
 	var user_username = document.getElementById("login_username").value;

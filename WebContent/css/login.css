@@ -1,5 +1,5 @@
 body{
-	background:#2A6496;
+	background:#13599d;
 }
 .contain{
 	width: 1000px;
@@ -41,8 +41,7 @@ body{
 	height: 250px;
 	width: 450px;
 	background:url(../img/login-bg.jpg);
-	border-radius: 20px;
-	border: white solid 2px;
+	border-radius: 10px;
 	
 }
 	
