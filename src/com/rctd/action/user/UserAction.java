@@ -45,14 +45,18 @@ public class UserAction extends ActionSupport {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = response.getWriter();
+		System.out.println(userService.judgeUserByUsername(user_username));
 		if (!userService.judgeUserByUsername(user_username)) {
+			System.out.println(userService.judgeUserByUsername(user_username));
 			pw.write("UserNoExist");
 		} else {
 			rctd_user user = userService.getUserByUsername(user_username);
-			String password = md5.GetMD5Code(user_password);
+//			String password = md5.GetMD5Code(user_password);
+//			System.out.println(password.equals(user.getUser_password()));
+			String password=user_password;
 			if (user.getUser_password().equals(password)) {
 				pw.write("loginSuccess");
-//				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
+				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
 //				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
 
 			} else {

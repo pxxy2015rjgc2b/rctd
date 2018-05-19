@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 
 	public boolean judgeUserByUsername(String user_username) {
 		// TODO Auto-generated method stub
-		return false;
+		return userDao.judgeUserByUsername(user_username);
 	}
 
 	public void updatePassword(String user_id, String newPassword) {

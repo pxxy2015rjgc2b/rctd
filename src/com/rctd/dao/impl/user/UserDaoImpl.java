@@ -30,17 +30,17 @@ public class UserDaoImpl implements UserDao {
 		List<rctd_user> list = query.list();
 		return list.get(0);
 	}
+
 	//判断用户是否存在
-	public boolean judgeUserByUsername(String user_username) {
-		// TODO Auto-generated method stub
-		String hql = "from rctd_user where user_username = '" + user_username + "'";
-		Query query =getSession().createQuery(hql);
-		List<rctd_user> list=query.list();
-		if(list.size()>0){
-			return true;
-		}else{
-			return false;
-		}
-		
-	}
+		public boolean judgeUserByUsername(String user_username) {
+			// TODO Auto-generated method stub
+			String hql = "from rctd_user where user_username = '" + user_username + "'";
+			Query query =getSession().createQuery(hql);
+			List<rctd_user> list=query.list();
+			if(list.size() <= 0){
+				return false;
+			}else{
+				return true;
+			}
 }
+		}

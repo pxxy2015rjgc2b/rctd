@@ -9,14 +9,15 @@ function login() {
 	getXmlHttp();
 	var user_username = document.getElementById("login_username").value;
 	var user_password = document.getElementById("login_password").value;
-	xmlHttp.open("POST","/rctd/user/User_login",true);
+	xmlHttp.open("POST","/rctd/user/user_login",true);
 	var formData = new FormData();
 	formData.append("user_username", user_username);
 	formData.append("user_password", user_password);
-	xmlHttp.send(formDate);
+	xmlHttp.send(formData);
 	xmlHttp.onreadystatechange = function() {
 		if(isBack()) {
 			var result = xmlHttp.responseText;
+			alert(result);
 			switch (result) {
 			case "UserNoExist":
 				toastr.error("用户名不存在！");
@@ -25,7 +26,7 @@ function login() {
 				toastr.error("密码错误！若忘记密码请联系管理员更改");
 				break;
 			case "loginSuccess":
-				window.location = "/xsjsglxt/user/User_intoindex";
+				window.location = "/rctd/user/user_intoIndex";
 			}
 		}
 	}
