@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.rctd.dao.manager.ManagerDao;
+import com.rctd.domain.DO.rctd_list;
 
 public class ManagerDaoImpl implements ManagerDao {
 	private SessionFactory sessionFactory;
@@ -18,5 +19,20 @@ public class ManagerDaoImpl implements ManagerDao {
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+	@Override
+	public boolean saveList(rctd_list rList) {
+		// TODO Auto-generated method stub
+
+		Session session = this.getSession();
+		try {
+			session.save(rList);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+
 	}
 }
