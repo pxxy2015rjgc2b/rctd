@@ -18,13 +18,14 @@ function login() {
 		if(isBack()) {
 			var result = xmlHttp.responseText;
 			switch (result) {
-				case:
-					
-				  break;
-				case:
-				  break;
-				case:
-				  window.location = "";
+			case "UserNoExist":
+				toastr.error("用户名不存在！");
+				break;
+			case "passwordError":
+				toastr.error("密码错误！若忘记密码请联系管理员更改");
+				break;
+			case "loginSuccess":
+				window.location = "#href";
 			}
 		}
 	}
