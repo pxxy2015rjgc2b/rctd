@@ -37,8 +37,8 @@ public class UserAction extends ActionSupport{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-	
-	/*public void login() throws IOException{
+	//登录
+	public void login() throws IOException{
 		HttpServletResponse response=ServletActionContext.getResponse();
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter pw=response.getWriter();
@@ -47,13 +47,21 @@ public class UserAction extends ActionSupport{
 		}else{
 			rctd_user user=userService.getUserByUsername(user_username);
 			String password="noexsit";
-			if(user.getuser_password.equals(password)){
+			if(user.getUser_password().equals(password)){
 				pw.write("success");
-				ActionContext.getContext().getSession("");
+				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
+				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
 				
 			}
-		}*/
-//	}
+		}
+}
+	//退出注销
+	public String logout() {
+		ActionContext.getContext().getSession().remove("user_id");
+		ActionContext.getContext().getSession().remove("user_name");
+		return "logoutSuccess";
+	}
+
 
 	
 
