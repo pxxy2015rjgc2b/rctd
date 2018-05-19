@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-5-18 16:07:42 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.rctd.domain.DO.rctd_user" table="RCTD_USER">
+    <class name="com.rctd.domain.DO.test" table="TEST">
         <id name="user_id" type="java.lang.String">
             <column name="USER_ID" />
             <generator class="assigned" />
