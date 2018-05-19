@@ -8,6 +8,7 @@
 			<result name="navbar_">/WEB-INF/view/navbar.jsp</result>
 			<result name="intoIndex">/WEB-INF/view/index.jsp</result>
 			<result name="intoMain">/WEB-INF/view/user/user.jsp</result>
+			<result name="logoutSuccess">/login.jsp</result>
 		</action>
 	</package>
 </struts>
