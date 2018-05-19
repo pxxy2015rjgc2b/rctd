@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.rctd.domain.DO.rctd_user;
 import com.rctd.service.user.UserService;
 
-public class UserAction extends ActionSupport{
+public class UserAction extends ActionSupport {
 	private UserService userService;
 
 	public String implements_navbar() {
@@ -37,37 +37,41 @@ public class UserAction extends ActionSupport{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-	//登录
-	public void login() throws IOException{
-		HttpServletResponse response=ServletActionContext.getResponse();
+
+	// 登录
+	public void login() throws IOException {
+		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter pw=response.getWriter();
-		if(!userService.judgeUserByUsername(user_username)){
-			pw.write("");
-		}else{
-			rctd_user user=userService.getUserByUsername(user_username);
-			String password="noexsit";
-			if(user.getUser_password().equals(password)){
-				pw.write("success");
+		PrintWriter pw = response.getWriter();
+		if (!userService.judgeUserByUsername(user_username)) {
+			pw.write("UserNoExist");
+		} else {
+			rctd_user user = userService.getUserByUsername(user_username);
+			String password = "noexsit";
+			if (user.getUser_password().equals(password)) {
+				pw.write("loginSuccess");
 				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
 				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
+<<<<<<< HEAD
+=======
+			} else {
+				pw.write("PasswordError");
+>>>>>>> LZY
 			}
 		}
-}
-	//退出注销
+	}
+
+	// 退出注销
 	public String logout() {
 		ActionContext.getContext().getSession().remove("user_id");
 		ActionContext.getContext().getSession().remove("user_name");
 		return "logoutSuccess";
 	}
 
-
-	
-
-
 	private String user_id;
 	private String user_username;
 	private String user_password;
+
 	public String getUser_id() {
 		return user_id;
 	}
@@ -92,4 +96,3 @@ public class UserAction extends ActionSupport{
 		this.user_password = user_password;
 	}
 }
-	
