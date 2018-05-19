@@ -25,7 +25,7 @@ function login() {
 				toastr.error("密码错误！若忘记密码请联系管理员更改");
 				break;
 			case "loginSuccess":
-				window.location = "#href";
+				window.location = "/xsjsglxt/user/User_intoindex";
 			}
 		}
 	}
