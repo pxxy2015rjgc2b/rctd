@@ -17,8 +17,8 @@
 		<s:action name="user_implements_navbar" namespace="/user" executeResult="true" />
 		
 		<!-- 内容div  -->
-		<div id="totalPanel" style="width:1100px; background-color: white; height: 600px; margin: 90px auto;">
-			
+		<div id="totalPanel" style="width:1100px; background-color: white; margin: 90px auto;">
+			<div class>
 		</div>	
 </body>
 </html>
