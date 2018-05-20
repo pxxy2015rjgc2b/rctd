@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录页面</title>
+<title>用户登录页面</title>
 <!--------------------------------------------------------------------------------->
 <script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
@@ -18,7 +18,7 @@
 <!--------------------------------------------------------------------------------->
 <link rel="stylesheet" href="<%=basePath%>css/login.css">
 <script src="<%=basePath%>js/user/login.js"></script>
-<!--------------------------------------------------------------------------------->
+<!-------------------------------------------z-------------------------------------->
 <link rel="stylesheet" href="<%=basePath%>css/toastr.css">
 <script src="<%=basePath%>js/toastr.js"></script>
 <!--------------------------------------------------------------------------------->
@@ -41,8 +41,8 @@
 	<!-- 输入组 -->
 		<div class="login-input-area ">
 			<div class="input-group input-group-lg" >
-			  	<span class="input-group-addon bg-info" id="basic-addon1" style="color: #285E8E;"><span class=" glyphicon glyphicon-user "></span> 账户：</span>
-			 	<input id="login_username" type="text" class="form-control" placeholder="请输入用户名">
+			  	<span class="input-group-addon" id="basic-addon1" style="color: #285E8E;"><span class=" glyphicon glyphicon-user "></span> 账户：</span>
+			 	<input id="login_username" type="text" class="form-control"  placeholder="请输入用户名">
 			</div>
 	<br>
 			<div class="input-group input-group-lg">
@@ -66,6 +66,5 @@
 		</div>
 	</div>
 </div>
-</body>
 </body>
 </html>

@@ -2,12 +2,12 @@ var xmlHttp;
 //加载动画
 window.onload=function() {
 	 $(function(){
-	    var div1=$('.login-left');
-	    div1.animate({height:'400px',opacity:'1'},"slow");
-	    var div2=$('.login-right');
-	    div2.animate({opacity:'1'},3000);
-	  });
-	}
+		    var div1=$('.login-left');
+		    div1.animate({height:'400px',opacity:'1'},"slow");
+		    var div2=$('.login-right');
+		    div2.animate({opacity:'1'},3000);
+		  });
+}
 //回车事件
 document.onkeydown = keyLogin;
 function keyLogin(event) {
