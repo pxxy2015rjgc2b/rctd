@@ -4,7 +4,7 @@ import com.rctd.domain.DO.rctd_user;
 
 public interface UserService {
 	public rctd_user getUserByUsername(String user_username);
-	
+
 	public void addUser(rctd_user xu);
 
 	public rctd_user getUserById(String user_id);
@@ -15,5 +15,6 @@ public interface UserService {
 
 	public boolean judgeUserByUsername(String user_username);
 
-	public void updatePassword(String user_id, String newPassword);
+	public void updatePassword(String rctd_user_id, String newPassword);
+
 }

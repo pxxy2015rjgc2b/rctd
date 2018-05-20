@@ -21,14 +21,15 @@ public class UserServiceImpl implements UserService {
 		return userDao.getUserByUsername(user_username);
 	}
 
-	public void addUser(com.rctd.domain.DO.rctd_user xu) {
+	public void addUser(com.rctd.domain.DO.rctd_user ru) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public com.rctd.domain.DO.rctd_user getUserById(String user_id) {
+	public rctd_user getUserById(String rctd_user_id) {
 		// TODO Auto-generated method stub
-		return null;
+		rctd_user ru = userDao.getUserById(rctd_user_id);
+		return ru;
 	}
 
 	public void updateUser(com.rctd.domain.DO.rctd_user xu) {
@@ -46,9 +47,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.judgeUserByUsername(user_username);
 	}
 
-	public void updatePassword(String user_id, String newPassword) {
+	public void updatePassword(String rctd_user_id, String newPassword) {
 		// TODO Auto-generated method stub
-
+		userDao.updatePassword(rctd_user_id, newPassword);
 	}
 
 }

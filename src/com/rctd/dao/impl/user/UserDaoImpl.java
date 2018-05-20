@@ -46,4 +46,18 @@ public class UserDaoImpl implements UserDao {
 		}
 
 	}
+
+	// 修改密码
+	public void updatePassword(String rctd_user_id, String newPassword) {
+		// TODO Auto-generated method stub
+		String hql = "update rctd_user set user_password ='" + newPassword + "' where rctd_user_id = '" + rctd_user_id
+				+ "'";
+		getSession().createQuery(hql).executeUpdate();
+	}
+
+	public rctd_user getUserById(String rctd_user_id) {
+		// TODO Auto-generated method stub
+		rctd_user xu = (rctd_user) getSession().get(rctd_user.class, rctd_user_id);
+		return xu;
+	}
 }

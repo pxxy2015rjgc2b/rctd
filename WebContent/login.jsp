@@ -1,20 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path+ "/";
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登录页面</title>
 <!--------------------------------------------------------------------------------->
-<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
 <!--------------------------------------------------------------------------------->
-<link rel="stylesheet" href="css/login.css">
-<script src="js/user/login.js"></script>
+<link rel="stylesheet" href="<%=basePath%>css/login.css">
+<script src="<%=basePath%>js/user/login.js"></script>
 <!--------------------------------------------------------------------------------->
-<link rel="stylesheet" href="css/toastr.css">
-<script src="js/toastr.js"></script>
+<link rel="stylesheet" href="<%=basePath%>css/toastr.css">
+<script src="<%=basePath%>js/toastr.js"></script>
 <!--------------------------------------------------------------------------------->
 </head>
 <body>
