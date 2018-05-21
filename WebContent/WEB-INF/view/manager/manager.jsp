@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>账目管理</title>
 <script type="text/javascript" src="<%=basePath%>js/manager/createCount.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/manager/inquireCount.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/manager/showList.js"></script>
 </head>
 <body>
 		<!-- 引入导航条 -->
@@ -29,8 +29,8 @@
 			<div class="panel-body">
 				<div class="operation" style="margin-bottom: 6px;">
 					<button style="margin-left: 15px;" type="button"
-						class="btn btn-default" onclick="inquireCount()">
-						<i class="fa fa-plus-square"></i>账目信息查询
+						class="btn btn-default">
+						<i class="fa fa-plus-square"></i>查询账目信息
 					</button>
 					<button style="margin-left: 15px;" type="button"
 						class="btn btn-default" onclick="createCount()">
@@ -53,7 +53,7 @@
 					<h3 class="panel-title">账目信息列表</h3>
 				</div>
 				<div class="panel-body" style="width: 1100px;font-size: 12px;" >
-					<table class="table table-hover table-bordered" style="text-align: center; margin: 20px 0;">
+					<table id="list" class="table table-hover table-bordered" style="text-align: center; margin: 20px 0;">
 						<thead>
 							<tr>
 								
@@ -96,9 +96,12 @@
 								<th>操作</th>
 							</tr>
 						</thead>
-						<tbody>
 						
+						<tbody>
+							
+				
 						</tbody>
+
 						<tfoot class="table table-hover table-bordered" style="text-align: center; margin: 20px 0;">
 							<tr>
 								<th>汇总：</th>
@@ -111,27 +114,27 @@
 								<th><label>差额：</label>
 									<input type="text" class="form-control"/>
 								</th>
+								<!-- <th></th>
+								<th></th>
+								<th></th>
+								<th>
+										<button class="btn btn-danger" onclick="DeleteDNA()" style="float: right; margin: 0 10px;">
+												<i class="fa fa-trash-o"></i> 删除所选
+										</button>
+								</th> -->
 							</tr>
 						</tfoot>
 					</table>
 					
 					<!--分页  -->
 					<div id="bottomPage" style="padding: 20px;">
-					<span>当前页数:<span id="currPage">{{ currPage }}</span></span> <span>共:<span
-						id="totalPage">{{ pageCount }}</span>页<span>共:<span
-						id="totalCount">{{ totalCount }}</span>条记录数
-					</span> <span onclick="skipToIndexPage()" id="indexPage"
-						class="pageOperation">首页</span> <span
-						onclick="skipToPrimaryPage()" id="previousPage"
-						class="pageOperation">上一页</span> <span onclick="skipToNextPage()"
-						id="nextPage" class="pageOperation">下一页</span> <span
-						onclick="skipToLastPage()" id="lastPage" class="pageOperation">末页</span>
-					<span> <input id="skipPage" class="form-control" type="text"
-						style="display: inline-block; text-align: center; width: 60px; height: 30px;"
-						class="queryInput">
-						<button onclick="skipToArbitrarilyPage()" class="btn btn-default"
-							style="height: 30px;">跳转</button>
-					</span>
+					<span>当前页数:<span id="span_pageIndex">1</span></span> <span>共:<span
+						id="span_totalPages">2</span>页
+					</span> 共 <span id="span_totalRecords">0</span> 条记录 <span
+						onclick="flip(1)" id="indexPage" class="pageOperation">首页</span> <span
+						onclick="flip(2)" id="previousPage" class="pageOperation">上一页</span>
+					<span onclick="flip(3)" id="nextPage" class="pageOperation">下一页</span>
+					<span onclick="flip(4)" id="lastPage" class="pageOperation">末页</span>
 				</div>
 					<!--分页结束  -->
 				</div>
@@ -149,15 +152,6 @@
 			minDate : '1990/01/01', // 设置最小日期
 			maxDate : '2050/01/01', // 设置最大日期
 		});
-		$('.mydate_minute').datetimepicker({
-			yearStart : 1990, // 设置最小年份
-			yearEnd : 2050, // 设置最大年份
-			yearOffset : 0, // 年偏差
-			timepicker : true, // 关闭时间选项
-			format : 'Y-m-d H:i', // 格式化日期年-月-日
-			minDate : '1990/01/01', // 设置最小日期
-			maxDate : '2050/01/01', // 设置最大日期
-		});
-	</script>
+</script>
 </body>
 </html>
