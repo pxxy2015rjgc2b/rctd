@@ -5,7 +5,7 @@ window.onload=function() {
 		    var div1=$('.login-left');
 		    div1.animate({height:'400px',opacity:'1'},"slow");
 		    var div2=$('.login-right');
-		    div2.animate({opacity:'1'},3000);
+		    div2.animate({opacity:'0.5'},"slow");
 		  });
 }
 //回车事件

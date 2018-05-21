@@ -35,18 +35,18 @@
 	<!-- 左DIV -->
 	<div class="left">
 		<div class="login-left center-block">
-		<h1 style="color: white; font-size: 50px;">用户登录</h1>
-		<h2 style="color: white; font-size: 30px;"> ——<B> 账目管理系统</B></h2>
+		<h1 style="color: #13599d; font-size: 50px;">用户登录</h1>
+		<h2 style="color: #13599d; font-size: 30px;"> ——<B> 账目管理系统</B></h2>
 	<br>
 	<!-- 输入组 -->
 		<div class="login-input-area ">
 			<div class="input-group input-group-lg" >
-			  	<span class="input-group-addon" id="basic-addon1" style="color: #285E8E;"><span class=" glyphicon glyphicon-user "></span> 账户：</span>
+			  	<span class="input-group-addon" id="basic-addon1" style="color: #13599d;"><span class=" glyphicon glyphicon-user "></span> 账户：</span>
 			 	<input id="login_username" type="text" class="form-control"  placeholder="请输入用户名">
 			</div>
 	<br>
 			<div class="input-group input-group-lg">
-				<span class="input-group-addon" id="basic-addon2" style="color: #285E8E;"><span class="glyphicon glyphicon-lock"></span> 密码：</span>
+				<span class="input-group-addon" id="basic-addon2" style="color: #13599d;"><span class="glyphicon glyphicon-lock"></span> 密码：</span>
 				<input id="login_password" type="password" class="form-control" placeholder="请输入密码">
 			</div>
 		</div>
