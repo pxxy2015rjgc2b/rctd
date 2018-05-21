@@ -1,7 +1,7 @@
 package com.rctd.domain.DO;
 
 public class rctd_user {
-	private String rctd_user_id; //用户id
+	private String user_id; //用户id
 	private String user_name; //用户姓名
 	private String user_username; //用户名
 	private String user_password; //用户密码
@@ -12,11 +12,11 @@ public class rctd_user {
 	private String user_gmt_create; //创建时间
 	private String user_gmt_modified; //修改时间
 	
-	public String getRctd_user_id() {
-		return rctd_user_id;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setRctd_user_id(String rctd_user_id) {
-		this.rctd_user_id = rctd_user_id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getUser_name() {
 		return user_name;

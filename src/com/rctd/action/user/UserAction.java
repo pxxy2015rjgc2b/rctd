@@ -2,6 +2,7 @@ package com.rctd.action.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.rctd.domain.DO.rctd_user;
 import com.rctd.service.user.UserService;
 
+import util.TeamUtil;
 import util.md5;
 
 public class UserAction extends ActionSupport {
@@ -30,7 +32,97 @@ public class UserAction extends ActionSupport {
 	}
 
 	// --------------------------以上为页面引入
+	// 登录
+		public void login() throws IOException {
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter pw = response.getWriter();
+			System.out.println(userService.judgeUserByUsername(user_username));
+			if (!userService.judgeUserByUsername(user_username)) {
+				System.out.println(userService.judgeUserByUsername(user_username));
+				pw.write("UserNoExist");
+			} else {
+				rctd_user user = userService.getUserByUsername(user_username);
+//				String password = md5.GetMD5Code(user_password);
+//				System.out.println(password.equals(user.getUser_password()));
+				String password=user_password;
+				if (user.getUser_password().equals(password)) {
+					pw.write("loginSuccess");
+					ActionContext.getContext().getSession().put("user_id", user.getUser_id());
+					ActionContext.getContext().getSession().put("user_name", user.getUser_username());
 
+				} else {
+					pw.write("PasswordError");
+				}
+			}
+		}
+		//添加用户
+		public void adduser(rctd_user ru) throws IOException{
+			HttpServletResponse response=ServletActionContext.getResponse();
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter pw=response.getWriter();
+			ru=new rctd_user();
+			ru.setUser_id(TeamUtil.getUuid());
+			ru.setUser_export_Right(user_export_Right);
+			ru.setUser_gmt_create(TeamUtil.getStringSecond());
+			ru.setUser_gmt_modified(TeamUtil.getStringSecond());
+			ru.setUser_manage_Right(user_manage_Right);
+			ru.setUser_name(user_name);
+			ru.setUser_password(md5.GetMD5Code(user_password));
+			ru.setUser_telphone(user_telphone);
+			
+			ru.setUser_userRight(user_userRight);
+			
+			if(userService.judgeUserByUsername(user_username)){
+				pw.write("用户名存在");
+			}
+			else{
+				ru.setUser_username(user_username);
+				userService.addUser(ru);
+				pw.write("添加成功");
+			}
+			pw.flush();
+			pw.close();
+		}
+		//删除用户
+		public void deleteUser() throws IOException{
+			HttpServletResponse response=ServletActionContext.getResponse();
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter pw=response.getWriter();
+			userService.deleteUser(user_id);
+			pw.write("删除成功");
+			pw.flush();
+			pw.close();
+		}
+		//修改用户
+		public void updateUser() throws IOException{
+			rctd_user ru=new rctd_user();
+			rctd_user ruGet=userService.getUserById(user_id);
+			ru.setUser_id(user_id);
+			ru.setUser_export_Right(user_export_Right);
+			ru.setUser_gmt_create(ru.getUser_gmt_create());
+			ru.setUser_gmt_modified(TeamUtil.getStringSecond());
+			ru.setUser_manage_Right(user_manage_Right);
+			ru.setUser_name(user_name);
+			if (user_password == "" || user_password.equals("")) {
+				ru.setUser_password(ruGet.getUser_password());
+			} else {
+				ru.setUser_password(md5.GetMD5Code(user_password));
+			}
+			ru.setUser_telphone(user_telphone);
+			ru.setUser_userRight(user_userRight);
+			ru.setUser_export_Right(user_export_Right);
+			userService.updateUser(ru);
+		}
+		//
+		public void getUserById(){
+			
+		}
+		//
+		public void getUser(){
+			
+		}
+		
 	// --------------------------以下为setter/getter方法
 	public UserService getUserService() {
 		return userService;
@@ -40,39 +132,8 @@ public class UserAction extends ActionSupport {
 		this.userService = userService;
 	}
 
-	// 登录
-	public void login() throws IOException {
-		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter pw = response.getWriter();
-		System.out.println(userService.judgeUserByUsername(user_username));
-		if (!userService.judgeUserByUsername(user_username)) {
-			System.out.println(userService.judgeUserByUsername(user_username));
-			pw.write("UserNoExist");
-		} else {
-			rctd_user user = userService.getUserByUsername(user_username);
-//			String password = md5.GetMD5Code(user_password);
-//			System.out.println(password.equals(user.getUser_password()));
-			String password=user_password;
-			if (user.getUser_password().equals(password)) {
-				pw.write("loginSuccess");
-				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
-//				ActionContext.getContext().getSession().put("user_id", user.getRctd_user_id());
-
-			} else {
-				pw.write("PasswordError");
-			}
-		}
-	}
-
-	// 退出注销
-	public String logout() {
-		ActionContext.getContext().getSession().remove("user_id");
-		ActionContext.getContext().getSession().remove("user_name");
-		return "logoutSuccess";
-	}
-
-	private String rctd_user_id; //用户id
+	
+	private String user_id; //用户id
 	private String user_name; //用户姓名
 	private String user_username; //用户名
 	private String user_password; //用户密码
@@ -83,12 +144,12 @@ public class UserAction extends ActionSupport {
 	private String user_gmt_create; //创建时间
 	private String user_gmt_modified;
 
-	public String getRctd_user_id() {
-		return rctd_user_id;
+	public String getuser_id() {
+		return user_id;
 	}
 
-	public void setRctd_user_id(String rctd_user_id) {
-		this.rctd_user_id = rctd_user_id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getUser_name() {

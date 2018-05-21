@@ -78,7 +78,7 @@
 						<li data-toggle="modal" data-target="#updatePassword"><a
 							href="#"> <i class="lnr lnr-lock"></i> <span>修改密码</span>
 						</a></li>
-						<li><a href="#"> <i
+						<li><a href="/user/User_logout"> <i
 								class="lnr lnr-exit"></i> <span>退出登录</span>
 						</a></li>
 					</ul></li>
