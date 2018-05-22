@@ -132,6 +132,7 @@ public class UserAction extends ActionSupport {
 		this.userService = userService;
 	}
 
+<<<<<<< HEAD
 	
 	private String user_id; //用户id
 	private String user_name; //用户姓名
@@ -158,6 +159,68 @@ public class UserAction extends ActionSupport {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+=======
+	// 登录
+	public void login() throws IOException {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter pw = response.getWriter();
+		if (!userService.judgeUserByUsername(user_username)) {
+			pw.write("userNoExist");
+		} else {
+			rctd_user user = userService.getUserByUsername(user_username);
+			String password = user_password;
+			if (user.getUser_password().equals(password)) {
+				pw.write("loginSuccess");
+				ActionContext.getContext().getSession().put("rctd_user_id", user.getRctd_user_id());
+				ActionContext.getContext().getSession().put("user_name", user.getUser_name());
+			} else {
+				pw.write("passwordError");
+			}
+			pw.flush();
+			pw.close();
+		}
+	}
+
+	// 退出注销
+	public String logout() {
+		ActionContext.getContext().getSession().remove("rctd_user_id");
+		ActionContext.getContext().getSession().remove("user_name");
+		return "logoutSuccess";
+	}
+
+	// 修改密码
+	public void updatePassword() throws IOException {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html；charset=utf-8");
+		PrintWriter pw = response.getWriter();
+		String rctd_user_id = (String) ActionContext.getContext().getSession().get("rctd_user_id");
+		if (rctd_user_id != null || rctd_user_id != "") {
+			rctd_user ru = userService.getUserById(rctd_user_id);
+			if (ru.getUser_password().equals(oldPassword)) {
+				userService.updatePassword(rctd_user_id, newPassword);
+				pw.write("updateSuccess");
+			} else {
+				pw.write("oldPasswordError");
+			}
+		} else {
+			pw.write("updateFail");
+		}
+	}
+
+	private String rctd_user_id;
+	private String user_username;
+	private String user_password;
+	private String oldPassword;
+	private String newPassword;
+
+	public String getRctd_user_id() {
+		return rctd_user_id;
+	}
+
+	public void setRctd_user_id(String rctd_user_id) {
+		this.rctd_user_id = rctd_user_id;
+>>>>>>> LZY
 	}
 
 	public String getUser_username() {
@@ -176,6 +239,7 @@ public class UserAction extends ActionSupport {
 		this.user_password = user_password;
 	}
 
+<<<<<<< HEAD
 	public String getUser_telphone() {
 		return user_telphone;
 	}
@@ -224,3 +288,22 @@ public class UserAction extends ActionSupport {
 		this.user_gmt_modified = user_gmt_modified;
 	} //修改时间
 }
+=======
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
+
+}
+>>>>>>> LZY
