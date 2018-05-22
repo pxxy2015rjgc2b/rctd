@@ -29,7 +29,7 @@
 	<nav id="navbar" class="navbar navbar-default navbar-fixed-top" 
 	 style=" background-color: #13599d;">
 		<div style="width: auto; float: left; line-height: 78px; margin: 0 0 0 30px; font-size: 30px; color: white;">
-			人创天地有限公司账目管理</div>
+			人创天地有限公司</div>
 	</nav>
 	
 	<!-- 左DIV -->
