@@ -29,7 +29,7 @@
 			<div class="panel-body">
 				<div class="operation" style="margin-bottom: 6px;">
 					<button style="margin-left: 15px;" type="button"
-						class="btn btn-default">
+						class="btn btn-default" onclick="createInquery()"> 
 						<i class="fa fa-plus-square"></i>查询账目信息
 					</button>
 					<button style="margin-left: 15px;" type="button"
