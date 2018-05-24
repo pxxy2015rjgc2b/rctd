@@ -3,6 +3,7 @@ package com.rctd.action.manager;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -77,7 +78,10 @@ public class ManagerAction {
 
 	public void getListById() throws IOException {
 		rctd_list returnList = managerService.getListById(list_id[0]);
+		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "GET,POST");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		Gson gson = new Gson();
