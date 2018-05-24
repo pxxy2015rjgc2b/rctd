@@ -3,13 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
+	<!-- action配置 -->
 	<bean id="userAction" class="com.rctd.action.user.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>	
+	
+	<!-- service配置 -->
 	<bean id="userService" class="com.rctd.service.impl.user.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
-	</bean>	
+	</bean>
+		
+	<!-- dao配置 -->
 	<bean id="userDao" class="com.rctd.dao.impl.user.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
