@@ -53,16 +53,13 @@
 			人创天地有限公司账目管理</div>
 		<div id="navbar-menu">
 			<ul style="margin: 0 0 0 20px;" class="nav navbar-nav navbar-left">
-				<li class="dropdown" style="float: left;"><a
-					href="#"><span>首页</span> </a></li>
-				<li class="dropdown" style="float: left;"><a
-					href="#"> <span>账目管理</span>
+				<li class="dropdown" style="float: left;"><a href="#"><span>首页</span>
 				</a></li>
-				<li class="dropdown" style="float: left;"><a
-					href="#"> <span>数据导出</span>
+				<li class="dropdown" style="float: left;"><a href="#"> <span>账目管理</span>
 				</a></li>
-				<li class="dropdown" style="float: left;"><a
-					href="#"> <span>用户</span>
+				<li class="dropdown" style="float: left;"><a href="#"> <span>数据导出</span>
+				</a></li>
+				<li class="dropdown" style="float: left;"><a href="#"> <span>用户</span>
 				</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin: 0 0px 0 0">
@@ -78,8 +75,7 @@
 						<li data-toggle="modal" data-target="#updatePassword"><a
 							href="#"> <i class="lnr lnr-lock"></i> <span>修改密码</span>
 						</a></li>
-						<li><a href="#"> <i
-								class="lnr lnr-exit"></i> <span>退出登录</span>
+						<li><a href="#"> <i class="lnr lnr-exit"></i> <span>退出登录</span>
 						</a></li>
 					</ul></li>
 				<!--  -->

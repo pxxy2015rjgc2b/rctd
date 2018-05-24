@@ -13,9 +13,11 @@
 <title>首页</title>
 </head>
 <body>
-		<s:action name="user_implements_navbar" namespace="/user" executeResult="true" />
-		<div id="totalPanel" style="width:1100px; background-color: white; height: 600px; margin: 90px auto;">
-			
-		</div>	
+	<s:action name="user_implements_navbar" namespace="/user"
+		executeResult="true" />
+	<div id="totalPanel"
+		style="width: 1100px; background-color: white; height: 600px; margin: 90px auto;">
+
+	</div>
 </body>
 </html>

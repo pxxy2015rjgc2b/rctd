@@ -4,12 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="managerAction" class="com.rctd.action.manager.ManagerAction" scope="prototype">
+	<bean id="managerAction" class="com.rctd.action.manager.ManagerAction"
+		scope="prototype">
 		<property name="managerService" ref="managerService"></property>
-	</bean>	
+	</bean>
 	<bean id="managerService" class="com.rctd.service.impl.manager.ManagerServiceImpl">
 		<property name="managerDao" ref="managerDao"></property>
-	</bean>	
+	</bean>
 	<bean id="managerDao" class="com.rctd.dao.impl.manager.ManagerDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

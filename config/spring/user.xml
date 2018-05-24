@@ -4,12 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="userAction" class="com.rctd.action.user.UserAction" scope="prototype">
+	<bean id="userAction" class="com.rctd.action.user.UserAction"
+		scope="prototype">
 		<property name="userService" ref="userService"></property>
-	</bean>	
+	</bean>
 	<bean id="userService" class="com.rctd.service.impl.user.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
-	</bean>	
+	</bean>
 	<bean id="userDao" class="com.rctd.dao.impl.user.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
