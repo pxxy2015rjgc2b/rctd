@@ -17,7 +17,7 @@ function updatePw() {
 	} else {
 		getXmlHttp();
 		var oldPassword = $("#oldPassword").val();
-		xmlHttp.open("POST","/rctd/user/user_updatePassword",true);
+		xmlHttp.open("POST","/rctd/user/User_updatePassword",true);
 		var formData = new FormData();
 		formData.append("oldPassword",oldPassword);
 		formData.append("newPassword",newPassword);
@@ -25,6 +25,7 @@ function updatePw() {
 		xmlHttp.onreadystatechange = function(){
 			if(isBack()){
 				var result = xmlHttp.responseText;
+				alert(result);
 				if(result == "oldPasswordError") {
 					toastr.error("原密码错误！");
 					$("#passwordLoadingDiv").hide();

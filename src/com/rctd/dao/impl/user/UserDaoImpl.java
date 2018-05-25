@@ -23,13 +23,7 @@ public class UserDaoImpl implements UserDao {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-<<<<<<< HEAD
-	
 	//得到用户名
-=======
-
-	// 得到用户名
->>>>>>> LZY
 	public rctd_user getUserByUsername(String user_username) {
 		// TODO Auto-generated method stub
 		String hql = "from rctd_user where user_username = '" + user_username + "'";
@@ -42,27 +36,19 @@ public class UserDaoImpl implements UserDao {
 	public boolean judgeUserByUsername(String user_username) {
 		// TODO Auto-generated method stub
 		String hql = "from rctd_user where user_username = '" + user_username + "'";
-<<<<<<< HEAD
 		Query query =getSession().createQuery(hql);
 		List<rctd_user> list=query.list();
 		if(list.size() <= 0){
-=======
-		Query query = getSession().createQuery(hql);
-		List<rctd_user> list = query.list();
-		if (list.size() > 0) {
-			return true;
-		} else {
->>>>>>> LZY
 			return false;
 		}else{
 			return true;
 		}
-<<<<<<< HEAD
+
 	}
 	//byid查询用户
-	public rctd_user getUserById(String user_id) {
+	public rctd_user getUserById(String rctd_user_id) {
 		// TODO Auto-generated method stub
-		rctd_user ru = (rctd_user) getSession().get(rctd_user.class, user_id);
+		rctd_user ru = (rctd_user) getSession().get(rctd_user.class, rctd_user_id);
 		return ru;
 	}
 	//添加用户
@@ -82,28 +68,11 @@ public class UserDaoImpl implements UserDao {
 		Query query=getSession().createQuery(hql);
 		query.executeUpdate();
 	}
-	//修改密码
-	public void updatePassword(String user_id, String newPassword) {
-		// TODO Auto-generated method stub
-		String hql="update rctd_user set user_password='" + newPassword + "' where user_id ='" +user_id+ "'";
-		Query query=getSession().createQuery(hql);
-		query.executeUpdate();
-=======
-
-	}
-
 	// 修改密码
 	public void updatePassword(String rctd_user_id, String newPassword) {
 		// TODO Auto-generated method stub
 		String hql = "update rctd_user set user_password ='" + newPassword + "' where rctd_user_id = '" + rctd_user_id
 				+ "'";
 		getSession().createQuery(hql).executeUpdate();
-	}
-
-	public rctd_user getUserById(String rctd_user_id) {
-		// TODO Auto-generated method stub
-		rctd_user xu = (rctd_user) getSession().get(rctd_user.class, rctd_user_id);
-		return xu;
->>>>>>> LZY
 	}
 }
