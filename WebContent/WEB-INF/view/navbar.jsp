@@ -64,7 +64,7 @@
 					href="#"> <span>数据导出</span>
 				</a></li>
 				<li class="dropdown" style="float: left;"><a
-					href="#"> <span>用户</span>
+					href="<%=basePath%>user/user_skipToUser"> <span>用户</span>
 				</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin: 0 0px 0 0">

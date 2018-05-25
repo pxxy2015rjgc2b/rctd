@@ -71,5 +71,9 @@ public class rctd_user {
 	}
 	public void setUser_gmt_modified(String user_gmt_modified) {
 		this.user_gmt_modified = user_gmt_modified;
+<<<<<<< HEAD
 	}
+=======
+	}
+>>>>>>> LZY
 }
