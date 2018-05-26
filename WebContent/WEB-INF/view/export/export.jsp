@@ -18,7 +18,7 @@
 		
 		<!-- 内容div  -->
 		<div id="totalPanel" style="width:1100px; background-color: white; height: 600px; margin: 90px auto;">
-			
+			<span>export main</span>
 		</div>	
 </body>
 </html>

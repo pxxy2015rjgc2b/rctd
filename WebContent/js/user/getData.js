@@ -2,7 +2,7 @@ var xmlHttp;
 
 window.onload = function() {
 	getXmlHttp();
-	xmlHttp.open("POST", "/rctd/user/user_getUser", true);
+	xmlHttp.open("POST", "/rctd/user/User_getUser", true);
 	var formData = new FormData();
 	formData.append("currPage", "1");
 	formData.append("queryString", "");
@@ -24,7 +24,7 @@ function addUser() {
 	}
 	$("#addContent").addClass("hideDiv");
 	$("#addLoadingDiv").removeClass("hideDiv");
-	xmlHttp.open("POST", "/rctd/user/user_addUser", true);
+	xmlHttp.open("POST", "/rctd/user/User_addUser", true);
 	var formData = new FormData(document.getElementById("addUserForm"));
 	xmlHttp.send(formData);
 	xmlHttp.onreadystatechange = addUserBack;
@@ -37,7 +37,7 @@ function reLoadUser() {
 	$("#loadingDiv").removeClass("hideDiv");
 	$("#tableDiv").addClass("hideDiv");
 	getXmlHttp();
-	xmlHttp.open("POST", "/rctd/user/user_getUser", true);
+	xmlHttp.open("POST", "/rctd/user/User_getUser", true);
 	var formData = new FormData();
 	formData.append("currPage", "1");
 	formData.append("queryString",'');
@@ -46,15 +46,17 @@ function reLoadUser() {
 }
 
 function updateUser(event) {
+	alert(event.value);
 	$("#updateLoadingDiv").removeClass("hideDiv");
 	$("#updateContent").addClass("hideDiv");
 	getXmlHttp();
-	xmlHttp.open("POST", "/rctd/user/user_updateUser", true);
+	xmlHttp.open("POST", "/rctd/user/User_updateUser", true);
 	var formData = new FormData(updateUserForm);
-	formData.append("rctd_user_id", event.value);
+	formData.append("user_id", event.value);
 	xmlHttp.send(formData);
 	xmlHttp.onreadystatechange = updateUserBack;
 }
+
 function updateUserBack() {
 	if (isBack()) {
 		toastr.success("修改成功！");
@@ -68,9 +70,9 @@ function getUserById(event) {
 	$("#updateContent").addClass("hideDiv");
 	$("#updateLoadingDiv").removeClass("hideDiv");
 	getXmlHttp();
-	xmlHttp.open("POST", "/rctd/user/user_getUserById", true);
+	xmlHttp.open("POST", "/rctd/user/User_getUserById", true);
 	var formData = new FormData();
-	formData.append("rctd_user_id", event.value);
+	formData.append("user_id", event.value);
 	xmlHttp.send(formData);
 	xmlHttp.onreadystatechange = getUserByIdBack;
 }
@@ -94,7 +96,9 @@ function getUserByIdBack() {
 function addUserBack() {
 	if (isBack()) {
 		var result = xmlHttp.responseText;
-		if (result == "用户名已经存在") {
+		
+		alert("adduser")
+		if (result == "用户名存在") {
 			toastr.error("用户名已经存在请重新填写用户名！");
 			$("#addLoadingDiv").addClass("hideDiv");
 			$("#addContent").removeClass("hideDiv");
@@ -105,7 +109,6 @@ function addUserBack() {
 			$("#addContent input").val("");
 			$("#addContent input[name='user_username']").focus();
 		}
-
 	}
 }
 
@@ -168,7 +171,7 @@ function queryUser() {
 	document.getElementById("userTable").innerHTML = "<tr style='background-color: #696969; color: white;'><td>账号</td><td>姓名</td><td>手机号码</td><td>注册时间</td><td>操作</td></tr>";
 	var queryString = document.getElementById("queryString").value;
 	getXmlHttp();
-	xmlHttp.open("POST", "/rctd/user/user_getUser", true);
+	xmlHttp.open("POST", "/rctd/user/User_getUser", true);
 	var formData = new FormData();
 	formData.append("currPage", "1");
 	formData.append("queryString", queryString);
@@ -188,7 +191,7 @@ function skipToIndexPage() {
 		document.getElementById("userTable").innerHTML = "<tr style='background-color: #696969; color: white;'><td>账号</td><td>姓名</td><td>代码</td><td>单位</td><td>操作</td></tr>";
 		var queryString = document.getElementById("queryString").value;
 		getXmlHttp();
-		xmlHttp.open("POST", "/rctd/user/user_getUser", true);
+		xmlHttp.open("POST", "/rctd/user/User_getUser", true);
 		var formData = new FormData();
 		formData.append("currPage", "1");
 		formData.append("queryString", queryString);
@@ -198,10 +201,11 @@ function skipToIndexPage() {
 }
 
 function deleteUser(event) {
+	alert(event.value);
 	getXmlHttp();
-	xmlHttp.open("POST", "/rctd/user/user_deleteUser", true);
+	xmlHttp.open("POST", "/rctd/user/User_deleteUser", true);
 	var formData = new FormData();
-	formData.append("rctd_user_id", event.value);
+	formData.append("user_id", event.value);
 	xmlHttp.send(formData);
 	xmlHttp.onreadystatechange = deleteUserBack;
 }
@@ -226,7 +230,7 @@ function skipToNextPage() {
 		document.getElementById("userTable").innerHTML = "<tr style='background-color: #696969; color: white;'><td>账号</td><td>姓名</td><td>代码</td><td>单位</td><td>操作</td></tr>";
 		var queryString = document.getElementById("queryString").value;
 		getXmlHttp();
-		xmlHttp.open("POST", "/rctd/user/user_getUser", true);
+		xmlHttp.open("POST", "/rctd/user/User_getUser", true);
 		var formData = new FormData();
 		formData.append("currPage", ++currPage);
 		formData.append("queryString", queryString);
@@ -247,7 +251,7 @@ function skipToPrimaryPage() {
 		document.getElementById("userTable").innerHTML = "<tr style='background-color: #696969; color: white;'><td>账号</td><td>姓名</td><td>代码</td><td>单位</td><td>操作</td></tr>";
 		var queryString = document.getElementById("queryString").value;
 		getXmlHttp();
-		xmlHttp.open("POST", "/rctd/user/user_getUser", true);
+		xmlHttp.open("POST", "/rctd/user/User_getUser", true);
 		var formData = new FormData();
 		formData.append("currPage", --currPage);
 		formData.append("queryString", queryString);
@@ -267,7 +271,7 @@ function skipToLastPage() {
 		document.getElementById("userTable").innerHTML = "<tr style='background-color: #696969; color: white;'><td>账号</td><td>姓名</td><td>代码</td><td>单位</td><td>操作</td></tr>";
 		var queryString = document.getElementById("queryString").value;
 		getXmlHttp();
-		xmlHttp.open("POST", "/xsjsglxt/user/user_getUser", true);
+		xmlHttp.open("POST", "/xsjsglxt/user/User_getUser", true);
 		var formData = new FormData();
 		formData.append("currPage", totalPage);
 		formData.append("queryString", queryString);
@@ -287,7 +291,7 @@ function skipToArbitrarilyPage() {
 		document.getElementById("userTable").innerHTML = "<tr style='background-color: #696969; color: white;'><td>账号</td><td>姓名</td><td>代码</td><td>单位</td><td>操作</td></tr>";
 		var queryString = document.getElementById("queryString").value;
 		getXmlHttp();
-		xmlHttp.open("POST", "/rctd/user/user_getUser", true);
+		xmlHttp.open("POST", "/rctd/user/User_getUser", true);
 		var formData = new FormData();
 		formData.append("currPage", currPage);
 		formData.append("queryString", queryString);

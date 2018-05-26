@@ -20,7 +20,7 @@
 	<input id="hideCurrPage" type="text" class="hideDiv">
 
 	<!-----------------------------------------引入导航条 ------------------------------------------------------>
-		<s:action name="user_implements_navbar" namespace="/user" executeResult="true" />
+		<s:action name="User_implements_navbar" namespace="/user" executeResult="true" />
 
 	<!----------------------------------------主体内容 -------------------------------------------------------- -->
 
@@ -125,14 +125,14 @@
 											<option value="jurisdiction_user">普通用户</option>
 									</select></td>
 									<td><label>导出权限：</label></td>
-									<td><select name="user_export_Right" class="form-control">
+									<td><select name="user_exportRight" class="form-control">
 											<option value="jurisdiction_none">无权限</option>
 											<option value="jurisdiction_use">可导出</option>
 									</select></td>
 								</tr>
 								<tr>
 									<td><label>管理权限：</label></td>
-									<td><select name="user_manage_Right"
+									<td><select name="user_manageRight"
 										class="form-control">
 											<option value="jurisdiction_none">无权限</option>
 											<option value="jurisdiction_admin">管理权限</option>

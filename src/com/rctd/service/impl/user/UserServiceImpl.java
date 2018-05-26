@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userDao.getUserByUsername(user_username);
 	}
-<<<<<<< HEAD
+
 	
 	//判断用户是否存在
 	public boolean judgeUserByUsername(String user_username) {
@@ -38,32 +38,15 @@ public class UserServiceImpl implements UserService {
 		return userDao.judgeUserByUsername(user_username);
 	}
 	
-	//添加用户
-	public void addUser(rctd_user ru) {
-		// TODO Auto-generated method stub
-		 userDao.addUser(ru);
-=======
 
 	// 添加用户
 	public void addUser(rctd_user ru) {
 		// TODO Auto-generated method stub
 		ru.setUser_password(ru.getUser_password());
 		userDao.addUser(ru);
->>>>>>> LZY
 	}
-
-	// 判断用户是否存在
-	public boolean judgeUserByUsername(String user_username) {
-		// TODO Auto-generated method stub
-		return userDao.judgeUserByUsername(user_username);
-	}
-<<<<<<< HEAD
 	
 	//修改用户信息
-=======
-
-	// 修改用户信息
->>>>>>> LZY
 	public void updateUser(rctd_user ru) {
 		// TODO Auto-generated method stub
 		userDao.updateUser(ru);
@@ -72,22 +55,13 @@ public class UserServiceImpl implements UserService {
 	// 删除用户
 	public void deleteUser(String rctd_user_id) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-		userDao.deleteUser(user_id);
+		userDao.deleteUser(rctd_user_id);
 	}
 	
 	public void updatePassword(String rctd_user_id, String newPassword) {
 		// TODO Auto-generated method stub
-		
 		userDao.updatePassword(rctd_user_id, newPassword);
-=======
-		userDao.deleteUser(rctd_user_id);
-	}
 
-	// 修改密码
-	public void updatePassword(String rctd_user_id, String newPassword) {
-		// TODO Auto-generated method stub
-		userDao.updatePassword(rctd_user_id, newPassword);
 	}
 
 	@Override
@@ -110,6 +84,5 @@ public class UserServiceImpl implements UserService {
 		List<rctd_user> list = userDao.getUserByPage(queryString, currPage);
 		suv.setList(list);
 		return suv;
->>>>>>> LZY
 	}
 }
