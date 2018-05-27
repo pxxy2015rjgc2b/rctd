@@ -80,8 +80,6 @@ public class ManagerAction {
 		rctd_list returnList = managerService.getListById(list_id[0]);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		response.setHeader("Access-Control-Allow-Methods", "GET,POST");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		Gson gson = new Gson();

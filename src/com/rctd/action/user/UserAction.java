@@ -41,6 +41,8 @@ public class UserAction extends ActionSupport {
 	public void login() throws IOException {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("text/html;charset=utf-8");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "GET,POST");
 		PrintWriter pw = response.getWriter();
 		if (!userService.judgeUserByUsername(user_username)) {
 			pw.write("userNoExist");
