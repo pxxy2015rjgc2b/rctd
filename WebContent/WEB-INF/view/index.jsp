@@ -42,6 +42,7 @@
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 	<div id="wrapper">
 		<s:action name="user_implements_navbar" namespace="/user" executeResult="true" />
 		
@@ -113,5 +114,13 @@
 	</div>
 	<!-- END MAIN -->
 	</div>	
+=======
+	<s:action name="user_implements_navbar" namespace="/user"
+		executeResult="true" />
+	<div id="totalPanel"
+		style="width: 1100px; background-color: white; height: 600px; margin: 90px auto;">
+
+	</div>
+>>>>>>> TLR1
 </body>
 </html>

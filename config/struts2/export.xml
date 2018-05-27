@@ -4,7 +4,8 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<package name="export" namespace="/export" extends="struts-default">
-		<action name="export_*" class="com.rctd.action.export.ExportAction" method="{1}">
+		<action name="export_*" class="com.rctd.action.export.ExportAction"
+			method="{1}">
 			<result name="intoMain">/WEB-INF/view/export/export.jsp</result>
 		</action>
 	</package>

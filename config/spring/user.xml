@@ -13,7 +13,6 @@
 		<property name="userDao" ref="userDao"></property>
 	</bean>
 		
-	<!-- dao配置 -->
 	<bean id="userDao" class="com.rctd.dao.impl.user.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
