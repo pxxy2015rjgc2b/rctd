@@ -81,7 +81,7 @@
 								</th>
 								
 								<th>
-								 <select class="form-control">
+								 <select class="form-control" onchange="changeCondition(this,'2')">
 										<option selected="selected">街道</option>
 										<option>东大街街道</option>
 										<option>凤凰街街道</option>

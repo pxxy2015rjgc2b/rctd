@@ -7,7 +7,7 @@ function createCount() {
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>车牌号：</th><td><input type="text" id="list_license_plate" class="form-control"/></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>芯片号：</th><td><input type="text" id="list_rfid" class="form-control"/></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>姓名：</th><td><input type="text" id="list_name" class="form-control" /></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>购买种类：</th><td><select id="list_kind" class="form-control"><option selected="selected" id="buyDirect" class="buyDirect" value="0">直接购买</option><option id="prepaid" class="prepaid" value="1">话费充值</option></select></td></th></tr>'
+						+ '<tr><th><span style="color:red;">*&nbsp;</span>购买种类：</th><td><select id="list_kind" class="form-control"><option selected="selected" id="buyDirect" class="buyDirect" value="0">直接购买</option><option id="prepaid" class="prepaid" value="1">充值话费</option></select></td></th></tr>'
 						+ '<tr id="buyOutright"><th><span style="color:red;">*&nbsp;</span>购买方式：</th><td><input type="radio" name="money" value="0" class=""><label style="margin-right:5px;">免费</label></input><input type="radio" name="money" value="120" class="" checked="true"><label style="margin-right:5px;">120</label></input><input type="radio" name="money" value="150" class=""><label>150</label></input></td></tr>'
 						+ '<tr id="recharge" style="display:none;"><th><span style="color:red;">*&nbsp;</span>购买方式：</th><td><input type="radio" value="200" name="money1"  class=""><label style="margin-right:5px;">200</label></input><input type="radio" name="money1" value="300" class=""><label>300</label></input></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>实际收款：</th><td><input type="text" id="list_real_price" class="form-control" /></td></tr>'
@@ -20,7 +20,7 @@ function createCount() {
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否交款：</th><td><select id="list_pay" class="form-control"><option slected="selected" value="否">否</option><option value="是">是</option></select></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>充值话费号码：</th><td><input type="text" id="list_number"  class="form-control" /></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否充值话费：</th><td><select id="list_recharge" class="form-control"><option selected="selected" value="否">否</option><option value="是">是</option></select></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>话费充值金额：</th><td><input type="text" id="list_price"  class="form-control" /></td></tr>'
+						+ '<tr><th><span style="color:red;">*&nbsp;</span>充值话费金额：</th><td><input type="text" id="list_price"  class="form-control" /></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>备注：</th><td><input type="text" id="list_remark"  class="form-control" /></td></tr>'
 						+ '</tbody></table>',
 				buttons : {
@@ -44,7 +44,7 @@ function createCount() {
 						var list_number = document.getElementById("list_number");//充值话费号码
 						var list_recharge = document.getElementById("list_recharge");//是否充值话费
 						var list_remark = document.getElementById("list_remark");//备注
-						var list_price = document.getElementById("list_price");//话费充值金额
+						var list_price = document.getElementById("list_price");//充值话费金额
 						
 						
 					if (list_license_plate.value == "") {
@@ -59,15 +59,7 @@ function createCount() {
 							toastr.error("姓名不能为空！");
 							return false;
 						}
-						/*//判断购买方式是否已选
-						for(var i=0;i<list_method.length;i++){
-							if(list_method[i].checked == true){
-								//alert(list_method[i].value);
-							}else{
-								toastr.error("请选择购买方式！");
-								return false;
-							}
-						}*/
+						
 						if(list_real_price.value == ""){
 							toastr.error("实际收款不能为空！");
 							return false;
@@ -108,7 +100,7 @@ function createCount() {
 						}
 						
 						if (list_price.value == "") {
-							toastr.error("话费充值金额不能为空！");
+							toastr.error("充值话费金额不能为空！");
 							return false;
 						}
 						
