@@ -7,7 +7,7 @@ function createCount() {
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>车牌号：</th><td><input type="text" id="list_license_plate" class="form-control"/></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>芯片号：</th><td><input type="text" id="list_rfid" class="form-control"/></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>姓名：</th><td><input type="text" id="list_name" class="form-control" /></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>购买种类：</th><td><select id="list_kind" class="form-control"><option selected="selected" id="buyDirect" class="buyDirect" value="0">直接购买</option><option id="prepaid" class="prepaid" value="1">充值话费</option></select></td></th></tr>'
+						+ '<tr><th><span style="color:red;">*&nbsp;</span>购买种类：</th><td><select id="list_kind" class="form-control"><option selected="selected" id="buyDirect" class="buyDirect" value="直接购买">直接购买</option><option id="prepaid" class="prepaid" value="充值话费">充值话费</option></select></td></th></tr>'
 						+ '<tr id="buyOutright"><th><span style="color:red;">*&nbsp;</span>购买方式：</th><td><input type="radio" name="money" value="0" class=""><label style="margin-right:5px;">免费</label></input><input type="radio" name="money" value="120" class="" checked="true"><label style="margin-right:5px;">120</label></input><input type="radio" name="money" value="150" class=""><label>150</label></input></td></tr>'
 						+ '<tr id="recharge" style="display:none;"><th><span style="color:red;">*&nbsp;</span>购买方式：</th><td><input type="radio" value="200" name="money1"  class=""><label style="margin-right:5px;">200</label></input><input type="radio" name="money1" value="300" class=""><label>300</label></input></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>实际收款：</th><td><input type="text" id="list_real_price" class="form-control" /></td></tr>'
@@ -19,8 +19,8 @@ function createCount() {
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>社区：</th><td><input type="text" id="list_community"  class="form-control" /></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否交款：</th><td><select id="list_pay" class="form-control"><option slected="selected" value="否">否</option><option value="是">是</option></select></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>充值话费号码：</th><td><input type="text" id="list_number"  class="form-control" /></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否充值话费：</th><td><select id="list_recharge" class="form-control"><option selected="selected" value="否">否</option><option value="是">是</option></select></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>充值话费金额：</th><td><input type="text" id="list_price"  class="form-control" /></td></tr>'
+						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否充值话费：</th><td><select id="list_recharge" class="form-control"><option value="否">否</option><option selected="selected" value="是">是</option></select></td></tr>'
+						+ '<tr id="Ifrecharge"><th><span style="color:red;">*&nbsp;</span>充值话费金额：</th><td><input type="text" id="list_price"  class="form-control" /></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>备注：</th><td><input type="text" id="list_remark"  class="form-control" /></td></tr>'
 						+ '</tbody></table>',
 				buttons : {
@@ -99,10 +99,7 @@ function createCount() {
 							return false;
 						}
 						
-						if (list_price.value == "") {
-							toastr.error("充值话费金额不能为空！");
-							return false;
-						}
+						
 						
 						var formData = new FormData();
 
@@ -128,7 +125,7 @@ function createCount() {
 							}
 						}
 						//formData.append(key,value);可以动态设置提交表单内容
-						if (list_kind==0){
+						if ($('#list_kind').val() == "直接购买"){
 							var money = document.getElementsByName("money");
 	
 							for (var num = 0; num < 3; num++) {
@@ -179,20 +176,32 @@ function createCount() {
 					});
 				}
 			});
-	//购买方式
-	$(document).ready(function(){
-	$("#list_kind").on("change",function(){
-		if ($("option:selected",this).index() ==0) {
-			$('#buyOutright').show();
-			$('#recharge').hide();
-		
-		};
-		if ($("option:selected",this).index() ==1) {
-			$('#buyOutright').hide();
-			$('#recharge').show();
-		
-		};
-	});
+	// 购买方式
+	$(document).ready(function() {
+		$("#list_kind").on("change", function() {
+			if ($('#list_kind').val() == "直接购买") {
+				$('#buyOutright').show();
+				$('#recharge').hide();
+
+			}
+			;
+			if ($('#list_kind').val() == "充值话费") {
+				$('#buyOutright').hide();
+				$('#recharge').show();
+
+			}
+			;
+		});
+		//是否充值话费
+		$("#list_recharge").on("change", function() {
+			if ($('#list_recharge').val() == "否") {
+				
+				$('#Ifrecharge').hide();
+
+			}
+			;
+			
+		});
 	
 	//发卡日期
 	$.datetimepicker.setLocale('ch');

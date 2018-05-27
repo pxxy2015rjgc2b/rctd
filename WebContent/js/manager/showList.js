@@ -3,10 +3,11 @@ var queryConditionTemp = {
 		'currPage' : 1,
 		'searchName':'',
 		'searchTimeStart':'',
+		'searchTimeEnd':'',
 		'searchIsPay':'',
 		'searchIsRecharge':'',
 		'searchStreet':'',
-//		'searchCommunity':'',
+		'searchCommunity':'',
 		'searchMethod':'',
 		'searchSort':'desc',
 		'totalPage':''
@@ -71,10 +72,11 @@ function showList() {
 	var formData=new FormData();
 	formData.append("listVO.searchName",queryConditionTemp.searchName);
 	formData.append("listVO.searchTimeStart",queryConditionTemp.searchTimeStart);
+	formData.append("listVO.searchTimeEnd",queryConditionTemp.searchTimeEnd);
 	formData.append("listVO.searchIsPay",queryConditionTemp.searchIsPay);
 	formData.append("listVO.searchIsRecharge",queryConditionTemp.searchIsRecharge);
 	formData.append("listVO.searchStreet",queryConditionTemp.searchStreet);
-//	formData.append("listVO.searchCommunity",queryConditionTemp.searchCommunity);
+	formData.append("listVO.searchCommunity",queryConditionTemp.searchCommunity);
 	formData.append("listVO.searchMethod",queryConditionTemp.searchMethod);
 	formData.append("listVO.searchSort",queryConditionTemp.searchSort);
 	formData.append("listVO.currPage", queryConditionTemp.currPage);
