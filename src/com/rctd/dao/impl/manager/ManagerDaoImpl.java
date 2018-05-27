@@ -26,7 +26,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+
 	public boolean saveList(rctd_list rList) {
 		// TODO Auto-generated method stub
 

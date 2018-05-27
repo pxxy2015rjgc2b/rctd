@@ -5,23 +5,20 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.formula.functions.T;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRichTextString;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
@@ -49,9 +46,8 @@ public class ExcelToBean2 {
 
 		/*
 		 * for (String str1ss : userPropertiesBundle.keySet()) { try {
-		 * System.out.println(new String(str1ss.getBytes("ISO-8859-1"),
-		 * "utf-8")); } catch (UnsupportedEncodingException e) {
-		 * e.printStackTrace(); } }
+		 * System.out.println(new String(str1ss.getBytes("ISO-8859-1"), "utf-8")); }
+		 * catch (UnsupportedEncodingException e) { e.printStackTrace(); } }
 		 */
 		try {
 			for (int i = 0; i < columnName.length; i++) { // 从资源文件中获取
@@ -238,7 +234,7 @@ public class ExcelToBean2 {
 		} catch (IllegalAccessException e) {
 			System.out.println("不可能抛出的异常");
 			try {
-				field.set(object, (int) value);
+				field.set(object, value);
 			} catch (IllegalArgumentException e1) {
 				e1.printStackTrace();
 			} catch (IllegalAccessException e1) {
