@@ -289,7 +289,12 @@ function editCount(event) {
 
 			}
 			;
-			
+			if ($('#list_recharge').val() == "是") {
+				
+				$('#Ifrecharge').show();
+
+			}
+			;
 		});
 
 		// 发卡日期
