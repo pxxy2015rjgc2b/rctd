@@ -28,7 +28,7 @@ public class ManagerServiceImpl implements ManagerService {
 		rList.setList_gmt_create(TeamUtil.getStringSecond());
 		rList.setList_gmt_modified(TeamUtil.getStringSecond());
 		boolean flag = managerDao.saveList(rList);
-		return false;
+		return flag;
 	}
 
 	@Override

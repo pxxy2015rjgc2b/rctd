@@ -12,9 +12,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>账目管理</title>
-<script type="text/javascript"
-	src="<%=basePath%>js/manager/createCount.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/manager/showList.js"></script>
+
 </head>
 <body>
 	<!-- 引入导航条 -->
@@ -32,21 +30,23 @@
 		<div class="panel-body">
 			<div class="operation" style="margin-bottom: 6px;">
 				<button style="margin-left: 15px;" type="button"
-					class="btn btn-default" onclick="createInquery()">
+						class="btn btn-default" data-toggle="modal" data-target="#newQuery">
 					<i class="fa fa-plus-square"></i>查询账目信息
 				</button>
 				<button style="margin-left: 15px;" type="button"
 					class="btn btn-default" onclick="createCount()">
 					<i class="fa fa-plus-square"></i> 新建账目信息
 				</button>
+				
+				
 				<input query_name="page_list_senceInformation.stop_time"
 					onchange="dynamic_query(this)"
 					style="float: right; margin-top: 6px; width: 150px; margin-right: 15px;"
-					type="text" class="form-control mydate" placeholder="结束日期">
-				<input query_name="page_list_senceInformation.start_time"
+					type="text" class="form-control mydate" placeholder="发卡结束日期">
+					<input query_name="page_list_senceInformation.start_time"
 					onchange="dynamic_query(this)"
 					style="float: right; margin-top: 6px; width: 150px; margin-right: 6px;"
-					type="text" class="form-control mydate" placeholder="起始日期">
+					type="text" class="form-control mydate" placeholder="发卡开始日期" >
 			</div>
 		</div>
 		<div class="col-md-12" style="width: 1100px; margin-left: -15px;">
@@ -61,24 +61,27 @@
 						<thead>
 							<tr>
 
-								<th>芯片号</th>
+								
 								<th>姓名</th>
-								<th><select class="form-control">
-										<!-- 120 150 0 200 300 -->
-										<option selected="selected">购买方式</option>
-										<option value="0">免费</option>
-										<option value="120">120</option>
-										<option value="150">150</option>
-										<option value="200">200</option>
-										<option value="300">300</option>
-								</select></th>
-
-								<th>实际收款</th>
-								<th>充值号码</th>
-
-
-								<th>发卡日期</th>
-								<th><select class="form-control">
+								<th>发卡时间</th>
+								
+								<th>
+									<select class="form-control" onchange="changeCondition(this,'0')">
+										<option value="">是否交钱</option>
+										<option value="否">否</option>
+										<option value="是">是</option>
+									</select> 
+								</th>
+								<th>
+									 <select class="form-control" onchange="changeCondition(this,'1')">
+										<option  value="">是否充值</option>
+										<option value="否">否</option>
+										<option value="是">是</option>
+									</select> 
+								</th>
+								
+								<th>
+								 <select class="form-control">
 										<option selected="selected">街道</option>
 										<option>东大街街道</option>
 										<option>凤凰街街道</option>
@@ -92,8 +95,31 @@
 										<option>青山镇</option>
 										<option>五陂下垦殖场</option>
 										<option>城郊管委会</option>
+								</select> </th>
+								
+								<th>
+								<select class="form-control">
+										<!-- 120 150 0 200 300 -->
+										<option selected="selected">购买方式</option>
+										<option value="0">免费</option>
+										<option value="120">120</option>
+										<option value="150">150</option>
+										<option value="200">200</option>
+										<option value="300">300</option>
 								</select></th>
-								<th>操作</th>
+								<th>
+									<select class="form-control">
+										<option selected="selected">时间排序(降序)</option>
+										<option>时间排序(升序)</option>
+									</select>
+								</th>
+								<th>修改</th>
+								<th style="padding-left:5px;width: 70px;">删除<br/>
+									<label> 
+										<input id="checkbox_all_select" type="checkbox" onclick="all_select()">
+									</label>
+								</th>
+								
 							</tr>
 						</thead>
 
@@ -102,43 +128,97 @@
 
 						</tbody>
 
-						<tfoot class="table table-hover table-bordered"
+						
+					</table>
+					
+				<div style="height: 34px; margin: 0 0 20px 0;">
+
+					<button class="btn btn-danger" onclick="DeleteCount()"
+						style="float: right; margin: 0 10px;">
+						<i class="fa fa-trash-o"></i> 删除所选
+					</button>
+
+				</div>
+				
+					<div id="list_total" class="panel-body" style="width: 1100px; font-size: 12px;margin-left: -25px;"">
+						<table class="table table-hover table-bordered"
 							style="text-align: center; margin: 20px 0;">
 							<tr>
 								<th>汇总：</th>
-								<th><label>实收金额：</label> <input type="text"
-									class="form-control" /></th>
-								<th><label>应收金额：</label> <input type="text"
-									class="form-control" /></th>
-								<th><label>差额：</label> <input type="text"
-									class="form-control" /></th>
-								<!-- <th></th>
-								<th></th>
-								<th></th>
-								<th>
-										<button class="btn btn-danger" onclick="DeleteDNA()" style="float: right; margin: 0 10px;">
-												<i class="fa fa-trash-o"></i> 删除所选
-										</button>
-								</th> -->
+								
+								<th><span>实收金额：<span class="input-group-addon" id="payNumber"></span></span>
+            						</th>
+								<th><span>应收金额：<span class="input-group-addon" id="methodNumber"></span></span>
+            						</th>
+								<th><span>差额：<span class="input-group-addon" id="balanceNuber"></span></span>
+            						</th>
+            					<th><span>总话费金额：<span class="input-group-addon" id="rechargeNumber"></span></span>
+            						</th>
 							</tr>
-						</tfoot>
-					</table>
-
+						</table>
+					</div>
 					<!--分页  -->
 					<div id="bottomPage" style="padding: 20px;">
-						<span>当前页数:<span id="span_pageIndex">1</span></span> <span>共:<span
-							id="span_totalPages">2</span>页
-						</span> 共 <span id="span_totalRecords">0</span> 条记录 <span
-							onclick="flip(1)" id="indexPage" class="pageOperation">首页</span>
-						<span onclick="flip(2)" id="previousPage" class="pageOperation">上一页</span>
-						<span onclick="flip(3)" id="nextPage" class="pageOperation">下一页</span>
-						<span onclick="flip(4)" id="lastPage" class="pageOperation">末页</span>
+						<span>当前页数:<span id="currPage">1</span></span> 
+						<span>共:<span id="totalPage">0</span>页</span> 
+						<span onclick="skipToIndexPage()" id="indexPage" class="pageOperation">首页</span> 
+						<span onclick="skipToPrimaryPage()" id="previousPage" class="pageOperation">上一页</span> 
+						<span onclick="skipToNextPage()" id="nextPage" class="pageOperation">下一页</span> 
+						<span onclick="skipToLastPage()" id="lastPage" class="pageOperation">末页</span>
+						<span> 
+						     <input id="skipPage" class="form-control" type="text" style="display: inline-block; text-align: center; width: 60px; height: 30px;" class="queryInput">
+							 <button onclick="skipToArbitrarilyPage()" class="btn btn-default" style="height: 30px;">跳转</button>
+						</span>
 					</div>
 					<!--分页结束  -->
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<!--模态框==========================================  -->
+	<!-- 新建查询-模态框（Modal） -->
+	<div class="modal fade" id="newQuery" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">账目信息查询</h4>
+				</div>
+				<div class="modal-body">
+					<form id="query_infomantion_inmodal" action="">
+						<table style="width: 50%; margin: auto;" class="Query_table">
+							<tbody>
+								<tr>
+									<td>姓名:</td>
+									<td><input name="breakeCaseListVO.query_sence_inquestId"
+										class="form-control" type="text"></td>
+								</tr>
+								<tr>
+									<td>社区:</td>
+									<td><input name="breakeCaseListVO.query_case_name"
+										class="form-control" type="text"></td>
+								
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary to_quert">确认查询</button>
+					<button type="button" class="btn btn-danger empty_quert">清空查询</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	<script type="text/javascript" src="<%=basePath%>js/manager/createCount.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/manager/showList.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/manager/DeleteCount.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/manager/editCount.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/manager/queryCount.js"></script>
 	<script type="text/javascript">
 		$.datetimepicker.setLocale('ch');
 		$('.mydate').datetimepicker({
@@ -150,6 +230,29 @@
 			minDate : '1990/01/01', // 设置最小日期
 			maxDate : '2050/01/01', // 设置最大日期
 		});
+		
+		//全选框
+		function all_select(){
+			//获取全选框按钮
+			var checkbox_all_select=document.getElementById("checkbox_all_select");
+			
+			//获取全选框的状态
+			if(checkbox_all_select.checked==true){
+				//获取底下全部复选框
+				checkbox_select=document.getElementsByName("checkbox_select");
+				for(var i=0;i<checkbox_select.length;i++){
+					//将每一个复选框的状态设置为选中
+					checkbox_select[i].checked=true;
+				}
+			}else{
+				for(var i=0;i<checkbox_select.length;i++){
+					checkbox_select[i].checked=false;
+				}
+			}
+		}
+		
+		
 </script>
+
 </body>
 </html>
