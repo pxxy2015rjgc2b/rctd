@@ -67,14 +67,14 @@
 								
 								<th>
 									<select class="form-control" onchange="changeCondition(this,'0')">
-										<option value="">是否交钱</option>
+										<option selected="selected" value="">是否交钱</option>
 										<option value="否">否</option>
 										<option value="是">是</option>
 									</select> 
 								</th>
 								<th>
 									 <select class="form-control" onchange="changeCondition(this,'1')">
-										<option  value="">是否充值</option>
+										<option selected="selected"  value="">是否充值</option>
 										<option value="否">否</option>
 										<option value="是">是</option>
 									</select> 
@@ -82,7 +82,7 @@
 								
 								<th>
 								 <select class="form-control" onchange="changeCondition(this,'2')">
-										<option selected="selected">街道</option>
+										<option selected="selected" value="">街道</option>
 										<option>东大街街道</option>
 										<option>凤凰街街道</option>
 										<option>八一街道</option>
@@ -98,9 +98,9 @@
 								</select> </th>
 								
 								<th>
-								<select class="form-control">
+								<select class="form-control" onchange="changeCondition(this,'3')">
 										<!-- 120 150 0 200 300 -->
-										<option selected="selected">购买方式</option>
+										<option selected="selected" value="">购买方式</option>
 										<option value="0">免费</option>
 										<option value="120">120</option>
 										<option value="150">150</option>

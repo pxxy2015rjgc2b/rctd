@@ -12,7 +12,11 @@ function changeCondition(event,flag) {
 		break;
 		
 	case "2":
-		queryConditionTemp.searchIsRecharge=event.value;
+		queryConditionTemp.searchStreet=event.value;
+		showList();
+		break;
+	case "3":
+		queryConditionTemp.searchMethod=event.value;
 		showList();
 		break;
 	default:
