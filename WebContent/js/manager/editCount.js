@@ -95,10 +95,7 @@ function editCount(event) {
 							toastr.error("社区不能为空！");
 							return false;
 						}
-						if (list_number.value == "") {
-							toastr.error("充值话费号码不能为空！");
-							return false;
-						}
+						
 
 
 						$("#confirmDiv").hide();

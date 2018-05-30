@@ -63,11 +63,11 @@
 
 								
 								<th>姓名</th>
-								<th>发卡时间</th>
+								<th>充值话费号码</th>
 								
 								<th>
 									<select class="form-control" onchange="changeCondition(this,'0')">
-										<option selected="selected" value="">是否交钱</option>
+										<option selected="selected" value="">是否缴费</option>
 										<option value="否">否</option>
 										<option value="是">是</option>
 									</select> 
@@ -109,8 +109,8 @@
 								</select></th>
 								<th>
 									<select class="form-control" onchange="changeCondition(this,'4')">
-										<option selected="selected" value="desc">时间排序(降序)</option>
-										<option value="asc">时间排序(升序)</option>
+										<option selected="selected" value="desc">发卡时间(降序)</option>
+										<option value="asc">发卡时间(升序)</option>
 									</select>
 								</th>
 								<th>修改</th>

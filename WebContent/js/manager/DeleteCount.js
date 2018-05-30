@@ -48,7 +48,9 @@ function DeleteCount() {
 							//console.log(checkedId);
 
 						}
+						
 					}
+					
 					xhr.open("POST","/rctd/manager/manager_deleteList");
 					xhr.send(formData);
 				}
