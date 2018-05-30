@@ -26,7 +26,6 @@ public class ManagerDaoImpl implements ManagerDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-
 	public boolean saveList(rctd_list rList) {
 		// TODO Auto-generated method stub
 
@@ -101,7 +100,7 @@ public class ManagerDaoImpl implements ManagerDao {
 			hql = hql + " and list_date >= '" + listVO.getSearchTimeStart() + "'";
 		if (listVO.getSearchTimeEnd() != null && !"".equals(listVO.getSearchTimeEnd().trim()))
 			hql = hql + " and list_date <= '" + listVO.getSearchTimeEnd() + "'";
-
+		System.out.println(hql);
 		long count = (long) session.createQuery(hql).uniqueResult();
 
 		return (int) count;
