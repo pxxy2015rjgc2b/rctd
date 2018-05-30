@@ -40,11 +40,11 @@
 				
 				
 				<input query_name="page_list_senceInformation.stop_time"
-					onchange="dynamic_query(this)"
+					onchange="changeCondition(this,'6')"
 					style="float: right; margin-top: 6px; width: 150px; margin-right: 15px;"
 					type="text" class="form-control mydate" placeholder="发卡结束日期">
 					<input query_name="page_list_senceInformation.start_time"
-					onchange="dynamic_query(this)"
+					onchange="changeCondition(this,'5')"
 					style="float: right; margin-top: 6px; width: 150px; margin-right: 6px;"
 					type="text" class="form-control mydate" placeholder="发卡开始日期" >
 			</div>
@@ -108,9 +108,9 @@
 										<option value="300">300</option>
 								</select></th>
 								<th>
-									<select class="form-control">
-										<option selected="selected">时间排序(降序)</option>
-										<option>时间排序(升序)</option>
+									<select class="form-control" onchange="changeCondition(this,'4')">
+										<option selected="selected" value="desc">时间排序(降序)</option>
+										<option value="asc">时间排序(升序)</option>
 									</select>
 								</th>
 								<th>修改</th>
@@ -193,12 +193,12 @@
 							<tbody>
 								<tr>
 									<td>姓名:</td>
-									<td><input name="breakeCaseListVO.query_sence_inquestId"
+									<td><input id="searchName"
 										class="form-control" type="text"></td>
 								</tr>
 								<tr>
 									<td>社区:</td>
-									<td><input name="breakeCaseListVO.query_case_name"
+									<td><input id="searchCommunity"
 										class="form-control" type="text"></td>
 								
 							</tbody>
@@ -206,8 +206,8 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary to_quert">确认查询</button>
-					<button type="button" class="btn btn-danger empty_quert">清空查询</button>
+					<button type="button" class="btn btn-primary to_quert" onclick="changeQuerySort()"">确认查询</button>
+					
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 				</div>
 			</div>
@@ -229,14 +229,7 @@
 			format : 'Y-m-d', // 格式化日期年-月-日
 			minDate : '1990/01/01', // 设置最小日期
 			maxDate : '2050/01/01', // 设置最大日期
-		});
-		
-<<<<<<< HEAD
-		<!-- 内容div  -->
-		<div id="totalPanel" style="width:1100px; background-color: white; height: 600px; margin: 90px auto;">
-		
-		</div>	
-=======
+		});	
 		//全选框
 		function all_select(){
 			//获取全选框按钮
@@ -260,6 +253,5 @@
 		
 </script>
 
->>>>>>> TLR1
 </body>
 </html>

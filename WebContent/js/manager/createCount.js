@@ -7,7 +7,7 @@ function createCount() {
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>车牌号：</th><td><input type="text" id="list_license_plate" class="form-control"/></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>芯片号：</th><td><input type="text" id="list_rfid" class="form-control"/></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>姓名：</th><td><input type="text" id="list_name" class="form-control" /></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>购买种类：</th><td><select id="list_kind" class="form-control"><option selected="selected" id="buyDirect" class="buyDirect" value="0">直接购买</option><option id="prepaid" class="prepaid" value="1">充值话费</option></select></td></th></tr>'
+						+ '<tr><th><span style="color:red;">*&nbsp;</span>购买种类：</th><td><select id="list_kind" class="form-control"><option selected="selected" id="buyDirect" class="buyDirect" value="直接购买">直接购买</option><option id="prepaid" class="prepaid" value="充值话费">充值话费</option></select></td></th></tr>'
 						+ '<tr id="buyOutright"><th><span style="color:red;">*&nbsp;</span>购买方式：</th><td><input type="radio" name="money" value="0" class=""><label style="margin-right:5px;">免费</label></input><input type="radio" name="money" value="120" class="" checked="true"><label style="margin-right:5px;">120</label></input><input type="radio" name="money" value="150" class=""><label>150</label></input></td></tr>'
 						+ '<tr id="recharge" style="display:none;"><th><span style="color:red;">*&nbsp;</span>购买方式：</th><td><input type="radio" value="200" name="money1"  class=""><label style="margin-right:5px;">200</label></input><input type="radio" name="money1" value="300" class=""><label>300</label></input></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>实际收款：</th><td><input type="text" id="list_real_price" class="form-control" /></td></tr>'
@@ -19,35 +19,42 @@ function createCount() {
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>社区：</th><td><input type="text" id="list_community"  class="form-control" /></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否交款：</th><td><select id="list_pay" class="form-control"><option slected="selected" value="否">否</option><option value="是">是</option></select></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>充值话费号码：</th><td><input type="text" id="list_number"  class="form-control" /></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否充值话费：</th><td><select id="list_recharge" class="form-control"><option selected="selected" value="否">否</option><option value="是">是</option></select></td></tr>'
-						+ '<tr><th><span style="color:red;">*&nbsp;</span>充值话费金额：</th><td><input type="text" id="list_price"  class="form-control" /></td></tr>'
+						+ '<tr><th><span style="color:red;">*&nbsp;</span>是否充值话费：</th><td><select id="list_recharge" class="form-control"><option value="否">否</option><option selected="selected" value="是">是</option></select></td></tr>'
+						+ '<tr id="Ifrecharge"><th><span style="color:red;">*&nbsp;</span>充值话费金额：</th><td><input type="text" id="list_price"  class="form-control" /></td></tr>'
 						+ '<tr><th><span style="color:red;">*&nbsp;</span>备注：</th><td><input type="text" id="list_remark"  class="form-control" /></td></tr>'
 						+ '</tbody></table>',
 				buttons : {
 					创建 : function() {
 
-						var list_license_plate = document.getElementById("list_license_plate");//车牌号
-						var list_rfid = document.getElementById("list_rfid");//芯片号
-						var list_name = document.getElementById("list_name");//姓名
-						
-						var list_kind = document.getElementById("list_kind").value;//购买种类
-						
-						
-					    var list_real_price=document.getElementById("list_real_price");//实际收款
-						var list_telephone = document.getElementById("list_telephone");//手机号
-						var list_id_number = document.getElementById("list_id_number");//身份证号
-						var list_shop = document.getElementById("list_shop");//安装单位
-						var list_date = document.getElementById("list_date");//发卡日期
-						var list_street = document.getElementById("list_street");//街道
-						var list_community = document.getElementById("list_community");//社区
-						var list_pay = document.getElementById("list_pay");//是否交款
-						var list_number = document.getElementById("list_number");//充值话费号码
-						var list_recharge = document.getElementById("list_recharge");//是否充值话费
-						var list_remark = document.getElementById("list_remark");//备注
-						var list_price = document.getElementById("list_price");//充值话费金额
-						
-						
-					if (list_license_plate.value == "") {
+						var list_license_plate = document
+								.getElementById("list_license_plate");// 车牌号
+						var list_rfid = document.getElementById("list_rfid");// 芯片号
+						var list_name = document.getElementById("list_name");// 姓名
+
+						var list_kind = document.getElementById("list_kind").value;// 购买种类
+
+						var list_real_price = document
+								.getElementById("list_real_price");// 实际收款
+						var list_telephone = document
+								.getElementById("list_telephone");// 手机号
+						var list_id_number = document
+								.getElementById("list_id_number");// 身份证号
+						var list_shop = document.getElementById("list_shop");// 安装单位
+						var list_date = document.getElementById("list_date");// 发卡日期
+						var list_street = document
+								.getElementById("list_street");// 街道
+						var list_community = document
+								.getElementById("list_community");// 社区
+						var list_pay = document.getElementById("list_pay");// 是否交款
+						var list_number = document
+								.getElementById("list_number");// 充值话费号码
+						var list_recharge = document
+								.getElementById("list_recharge");// 是否充值话费
+						var list_remark = document
+								.getElementById("list_remark");// 备注
+						var list_price = document.getElementById("list_price");// 充值话费金额
+
+						if (list_license_plate.value == "") {
 							toastr.error("车牌号不能为空！");
 							return false;
 						}
@@ -59,12 +66,12 @@ function createCount() {
 							toastr.error("姓名不能为空！");
 							return false;
 						}
-						
-						if(list_real_price.value == ""){
+
+						if (list_real_price.value == "") {
 							toastr.error("实际收款不能为空！");
 							return false;
 						}
-						
+
 						if (list_telephone.value == "") {
 							toastr.error("手机号不能为空！");
 							return false;
@@ -72,12 +79,12 @@ function createCount() {
 						if (list_id_number.value == "") {
 							toastr.error("身份证号不能为空！");
 							return false;
-						} 
-						if (/(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(list_id_number.value) == false)  
-					    {  
-					     toastr.error("输入身份证号码格式不正确!");  
-					      return false;  
-					    }  
+						}
+						if (/(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+								.test(list_id_number.value) == false) {
+							toastr.error("输入身份证号码格式不正确!");
+							return false;
+						}
 						if (list_shop.value == "") {
 							toastr.error("安装单位不能为空！");
 							return false;
@@ -98,74 +105,76 @@ function createCount() {
 							toastr.error("充值话费号码不能为空！");
 							return false;
 						}
-						
-						if (list_price.value == "") {
-							toastr.error("充值话费金额不能为空！");
-							return false;
-						}
-						
+
 						var formData = new FormData();
 
 						var xhr = false;
-						//创建引擎对象
+						// 创建引擎对象
 						xhr = new XMLHttpRequest();
 						xhr.onreadystatechange = function() {
-							//当 readyState 等于 4 且状态为 200 时，表示响应已就绪
+							// 当 readyState 等于 4 且状态为 200 时，表示响应已就绪
 							if (xhr.readyState == 4) {
 								if (xhr.status == 200) {
-									
-									 //responseText的值为1代表创建成功 2代表创建失败
-									 
+
+									// responseText的值为1代表创建成功 2代表创建失败
+
 									if (xhr.responseText == "saveSuccess") {
 										// jc.close();
 										toastr.success("账目信息录入成功！");
 										showList();
-									}
-									else{
+									} else {
 										toastr.error("保存异常");
 									}
-								} 
+								}
 							}
 						}
-						//formData.append(key,value);可以动态设置提交表单内容
-						if (list_kind==0){
+						// formData.append(key,value);可以动态设置提交表单内容
+						if ($('#list_kind').val() == "直接购买") {
 							var money = document.getElementsByName("money");
-	
+
 							for (var num = 0; num < 3; num++) {
 								if (money[num].checked) {
-									formData.append("list.list_method",money[num].value);
+									formData.append("list.list_method",
+											money[num].value);
 								}
 							}
-						}else{
+						} else {
 							var money1 = document.getElementsByName("money1");
-	
+
 							for (var num = 0; num < 2; num++) {
 								if (money1[num].checked) {
-									formData.append("list.list_method",money1[num].value);
+									formData.append("list.list_method",
+											money1[num].value);
 								}
 							}
 						}
-						formData.append("list.list_license_plate", list_license_plate.value);
+						formData.append("list.list_license_plate",
+								list_license_plate.value);
 						formData.append("list.list_rfid", list_rfid.value);
 						formData.append("list.list_name", list_name.value);
-						
+
 						formData.append("list.list_kind", list_kind);
-						formData.append("list.list_real_price",list_real_price.value);
-						formData.append("list.list_telephone",list_telephone.value);
-						formData.append("list.list_id_number",list_id_number.value);
-						formData.append("list.list_shop",list_shop.value);
-						formData.append("list.list_date",list_date.value);
-						formData.append("list.list_street",list_street.value);
-						formData.append("list.list_community",list_community.value);
-						formData.append("list.list_pay",list_pay.value);
-						formData.append("list.list_number",list_number.value);
-						formData.append("list.list_recharge",list_recharge.value);
-						formData.append("list.list_remark",list_remark.value);
-						formData.append("list.list_price",list_price.value);
-						
-						xhr.open("POST","/rctd/manager/manager_saveList");
+						formData.append("list.list_real_price",
+								list_real_price.value);
+						formData.append("list.list_telephone",
+								list_telephone.value);
+						formData.append("list.list_id_number",
+								list_id_number.value);
+						formData.append("list.list_shop", list_shop.value);
+						formData.append("list.list_date", list_date.value);
+						formData.append("list.list_street", list_street.value);
+						formData.append("list.list_community",
+								list_community.value);
+						formData.append("list.list_pay", list_pay.value);
+						formData.append("list.list_number", list_number.value);
+						formData.append("list.list_recharge",
+								list_recharge.value);
+						formData.append("list.list_remark", list_remark.value);
+						formData.append("list.list_price", list_price.value);
+
+						xhr.open("POST", "/rctd/manager/manager_saveList");
 						xhr.send(formData);
-						//showList(query_data);
+						// showList(query_data);
 					},
 					取消 : function() {
 
@@ -179,31 +188,43 @@ function createCount() {
 					});
 				}
 			});
-	//购买方式
-	$(document).ready(function(){
-	$("#list_kind").on("change",function(){
-		if ($("option:selected",this).index() ==0) {
-			$('#buyOutright').show();
-			$('#recharge').hide();
-		
-		};
-		if ($("option:selected",this).index() ==1) {
-			$('#buyOutright').hide();
-			$('#recharge').show();
-		
-		};
-	});
-	
-	//发卡日期
-	$.datetimepicker.setLocale('ch');
-	$('.mydate').datetimepicker({
-		yearStart : 1990, // 设置最小年份
-		yearEnd : 2050, // 设置最大年份
-		yearOffset : 0, // 年偏差
-		timepicker : false, // 关闭时间选项
-		format : 'Y-m-d', // 格式化日期年-月-日
-		minDate : '1990/01/01', // 设置最小日期
-		maxDate : '2050/01/01', // 设置最大日期
-	});
+	// 购买方式
+	$(document).ready(function() {
+		$("#list_kind").on("change", function() {
+			if ($('#list_kind').val() == "直接购买") {
+				$('#buyOutright').show();
+				$('#recharge').hide();
+
+			}
+			;
+			if ($('#list_kind').val() == "充值话费") {
+				$('#buyOutright').hide();
+				$('#recharge').show();
+
+			}
+			;
+		});
+		// 是否充值话费
+		$("#list_recharge").on("change", function() {
+			if ($('#list_recharge').val() == "否") {
+
+				$('#Ifrecharge').hide();
+
+			}
+			;
+
+		});
+
+		// 发卡日期
+		$.datetimepicker.setLocale('ch');
+		$('.mydate').datetimepicker({
+			yearStart : 1990, // 设置最小年份
+			yearEnd : 2050, // 设置最大年份
+			yearOffset : 0, // 年偏差
+			timepicker : false, // 关闭时间选项
+			format : 'Y-m-d', // 格式化日期年-月-日
+			minDate : '1990/01/01', // 设置最小日期
+			maxDate : '2050/01/01', // 设置最大日期
+		});
 	});
 }
