@@ -55,13 +55,14 @@
 			人创天地有限公司账目管理</div>
 		<div id="navbar-menu">
 			<ul style="margin: 0 0 0 20px;" class="nav navbar-nav navbar-left">
-				<li class="dropdown" style="float: left;"><a
-					href="#"><span>首页</span> </a></li>
-				<li class="dropdown" style="float: left;"><a
-					href="#"> <span>账目管理</span>
+				<li class="dropdown" style="float: left;"><a href="#"><span>首页</span>
 				</a></li>
+<<<<<<< HEAD
 				<li class="dropdown" style="float: left;"><a
 					href="<%=basePath%>user/User_export_intoMain"> <span>数据导出</span>
+=======
+				<li class="dropdown" style="float: left;"><a href="#"> <span>账目管理</span>
+>>>>>>> origin/SY
 				</a></li>
 				<li class="dropdown" style="float: left;"><a
 					href="<%=basePath%>user/User_skipToUser"> <span>用户</span>
@@ -127,7 +128,6 @@
 			</div>
 			<!-- /.modal-dialog -->
 		</div>
-
 		<!-- -------------------------------------------------修改密码成功--------------------------------------------------------------- -->		
 	</div>
 </body>

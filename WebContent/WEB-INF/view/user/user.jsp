@@ -13,6 +13,7 @@
 <title>用户</title>
 </head>
 <body>
+<<<<<<< HEAD
 		<!-- 引入导航条 -->
 		<s:action name="User_implements_navbar" namespace="/user" executeResult="true" />
 		
@@ -20,5 +21,16 @@
 		<div id="totalPanel" style="width:1100px; background-color: white; margin: 90px auto;">
 			<div class>
 		</div>	
+=======
+	<!-- 引入导航条 -->
+	<s:action name="user_implements_navbar" namespace="/user"
+		executeResult="true" />
+
+	<!-- 内容div  -->
+	<div id="totalPanel"
+		style="width: 1100px; background-color: white; height: 600px; margin: 90px auto;">
+
+	</div>
+>>>>>>> TLR1
 </body>
 </html>

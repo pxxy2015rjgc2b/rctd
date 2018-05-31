@@ -43,6 +43,7 @@ public class UserAction extends ActionSupport {
 	// --------------------------以上为页面引入
 
 	// 登录
+<<<<<<< HEAD
 		public void login() throws IOException {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setContentType("text/html;charset=utf-8");
@@ -51,6 +52,23 @@ public class UserAction extends ActionSupport {
 			if (!userService.judgeUserByUsername(user_username)) {
 				System.out.println(userService.judgeUserByUsername(user_username));
 				pw.write("UserNoExist");
+=======
+	public void login() throws IOException {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=utf-8");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+		PrintWriter pw = response.getWriter();
+		if (!userService.judgeUserByUsername(user_username)) {
+			pw.write("userNoExist");
+		} else {
+			rctd_user user = userService.getUserByUsername(user_username);
+			String password = user_password;
+			if (user.getUser_password().equals(password)) {
+				pw.write("loginSuccess");
+				ActionContext.getContext().getSession().put("rctd_user_id", user.getRctd_user_id());
+				ActionContext.getContext().getSession().put("user_name", user.getUser_name());
+>>>>>>> origin/SY
 			} else {
 				rctd_user user = userService.getUserByUsername(user_username);
 				String password = md5.GetMD5Code(user_password);

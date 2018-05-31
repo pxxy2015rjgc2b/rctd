@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<<<<<<< HEAD
 	<!-- exportaction配置 -->
 	<bean id="exportAction" class="com.rctd.action.export.ExportAction" scope="prototype">
 		<property name="exportService" ref="exportService"></property>
@@ -12,6 +13,16 @@
 		<property name="exportDao" ref="exportDao"></property>
 	</bean>	
 	<!-- exportdao配置 -->
+=======
+
+	<bean id="exportAction" class="com.rctd.action.export.ExportAction"
+		scope="prototype">
+		<property name="exportService" ref="exportService"></property>
+	</bean>
+	<bean id="exportService" class="com.rctd.service.impl.export.ExportServiceImpl">
+		<property name="exportDao" ref="exportDao"></property>
+	</bean>
+>>>>>>> origin/SY
 	<bean id="exportDao" class="com.rctd.dao.impl.export.ExportDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
