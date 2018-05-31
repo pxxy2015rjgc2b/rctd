@@ -39,7 +39,7 @@ function showList() {
 				str += '<td id="rctd_list_id"   style="display:none;">'
 						+ Handle.lists[len].rctd_list_id + '</td>';
 				str += '<td>' + Handle.lists[len].list_name + '</td>';
-				str += '<td>' + Handle.lists[len].list_date + '</td>';
+				str += '<td>' + Handle.lists[len].list_number + '</td>';
 				str += '<td>' + Handle.lists[len].list_pay + '</td>';
 				str += '<td>' + Handle.lists[len].list_recharge + '</td>';
 				str += '<td>' + Handle.lists[len].list_street + '</td>';
