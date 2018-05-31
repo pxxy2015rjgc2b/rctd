@@ -101,6 +101,8 @@ public class ManagerAction {
 		Gson gson = new Gson();
 		HttpServletResponse resposne = ServletActionContext.getResponse();
 		resposne.setContentType("text/html;charset=utf-8");
+		resposne.setHeader("Access-Control-Allow-Origin", "*");
+		resposne.setHeader("Access-Control-Allow-Methods", "GET,POST");
 		PrintWriter pw = resposne.getWriter();
 		pw.write(gson.toJson(listVO));
 		pw.flush();
