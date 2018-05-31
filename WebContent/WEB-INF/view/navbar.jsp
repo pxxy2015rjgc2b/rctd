@@ -61,7 +61,7 @@
 					href="#"> <span>账目管理</span>
 				</a></li>
 				<li class="dropdown" style="float: left;"><a
-					href="<%=basePath%>user/export_intoMain"> <span>数据导出</span>
+					href="<%=basePath%>user/User_export_intoMain"> <span>数据导出</span>
 				</a></li>
 				<li class="dropdown" style="float: left;"><a
 					href="<%=basePath%>user/User_skipToUser"> <span>用户</span>

@@ -1,8 +1,14 @@
 package com.rctd.service.impl.export;
 
-import com.rctd.dao.export.ExportDao;
+import java.util.List;
 
-public class ExportServiceImpl {
+import com.rctd.dao.export.ExportDao;
+import com.rctd.domain.DTO.rctd_listDTO;
+import com.rctd.domain.*;
+import com.rctd.service.export.ExportService;
+
+
+public  class ExportServiceImpl implements ExportService{
 	private ExportDao exportDao;
 
 	public ExportDao getExportDao() {
@@ -11,5 +17,16 @@ public class ExportServiceImpl {
 
 	public void setExportDao(ExportDao exportDao) {
 		this.exportDao = exportDao;
+	}
+
+	@Override
+	public void rctdlist(listVO lVO) {
+		// TODO Auto-generated method stub
+		int count = exportDao.getListCount(lVO);
+		lVO.setTotalCount(count);
+		lVO.setPageSize(30);
+		lVO.setTotalPage((int) Math.ceil((double) count/lVO.getPageSize()));
+		List<rctd_listDTO> dtoList = exportDao.getListByPage(lVO);
+		lVO.setList(dtoList);
 	}
 }
