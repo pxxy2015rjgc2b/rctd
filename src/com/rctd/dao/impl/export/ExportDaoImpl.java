@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 
 import com.rctd.dao.export.ExportDao;
 import com.rctd.domain.DTO.rctd_listDTO;
-import com.rctd.domain.VO.listVO;
+import com.rctd.domain.VO.ListVO;
 
 
 public class ExportDaoImpl implements ExportDao {
@@ -28,7 +28,7 @@ public class ExportDaoImpl implements ExportDao {
 
 	//得到有多少数据
 	@Override
-	public int getListCount(listVO lVO) {
+	public int getListCount(ListVO lVO) {
 		// TODO Auto-generated method stub
 		String hql="select count(*) from rctd_list where 1=1";
 		if (lVO.getQuery_name() != null && !"".equals(lVO.getQuery_name().trim()))
