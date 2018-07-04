@@ -20,7 +20,7 @@
 	<input id="hideCurrPage" type="text" class="hideDiv">
 
 	<!-----------------------------------------引入导航条 ------------------------------------------------------>
-		<s:action name="User_implements_navbar" namespace="/user" executeResult="true" />
+		<s:action name="user_implements_navbar" namespace="/user" executeResult="true" />
 
 	<!----------------------------------------主体内容 -------------------------------------------------------- -->
 

@@ -1,9 +1,9 @@
 package com.rctd.service.export;
 
-import com.rctd.domain.VO.listVO;
+import com.rctd.domain.VO.ListVO;
 
 public interface ExportService {
 	
-	void rctdlist(listVO lVO);
+	void rctdlist(ListVO lVO);
 
 }
