@@ -15,34 +15,32 @@
 
 </head>
 <body>
-	<!-- 引入导航条 -->
-	<s:action name="user_implements_navbar" namespace="/user"
-		executeResult="true" />
 
-	<!-- 内容div  -->
-	<div id="totalPanel"
-		style="width: 1100px; background-color: white; margin: 90px auto;">
-		<!--  -->
-		<div class="panel-heading" style="width: 1100px;">
-			<h3 class="panel-title">账目信息管理</h3>
-		</div>
-		<!--  -->
-		<div class="panel-body">
-			<div class="operation" style="margin-bottom: 6px;">
-				<button style="margin-left: 15px;" type="button"
-						class="btn btn-default" data-toggle="modal" data-target="#newQuery">
-					<i class="fa fa-plus-square"></i>查询账目信息
-				</button>
-				<button style="margin-left: 15px;" type="button"
-					class="btn btn-default" onclick="createCount()">
-					<i class="fa fa-plus-square"></i> 新建账目信息
-				</button>
-				
-				
-				<input query_name="page_list_senceInformation.stop_time"
-					onchange="changeCondition(this,'6')"
-					style="float: right; margin-top: 6px; width: 150px; margin-right: 15px;"
-					type="text" class="form-control mydate" placeholder="发卡结束日期">
+		<!-- 引入导航条 -->
+		<s:action name="user_implements_navbar" namespace="/user" executeResult="true" />
+		
+		<!-- 内容div  -->
+		<div id="totalPanel" style="width:1100px; background-color: white; margin: 90px auto;">
+			<!--  -->
+			<div class="panel-heading" style="width:1100px;">
+			 <h3 class="panel-title">账目信息管理</h3>
+			</div>
+			<!--  -->
+			<div class="panel-body">
+				<div class="operation" style="margin-bottom: 6px;">
+					<button style="margin-left: 15px;" type="button"
+						class="btn btn-default" onclick="createInquery()"> 
+						<i class="fa fa-plus-square"></i>查询账目信息
+					</button>
+					<button style="margin-left: 15px;" type="button"
+						class="btn btn-default" onclick="createCount()">
+						<i class="fa fa-plus-square"></i> 新建账目信息
+					</button>
+					<input query_name="page_list_senceInformation.stop_time"
+						onchange="dynamic_query(this)"
+						style=" float: right;margin-top: 6px; width: 150px; margin-right: 15px;"
+						type="text" class="form-control mydate" placeholder="结束日期">
+						
 					<input query_name="page_list_senceInformation.start_time"
 					onchange="changeCondition(this,'5')"
 					style="float: right; margin-top: 6px; width: 150px; margin-right: 6px;"
@@ -173,6 +171,8 @@
 					<!--分页结束  -->
 				</div>
 			</div>
+
+		</div>	
 		</div>
 	</div>
 	

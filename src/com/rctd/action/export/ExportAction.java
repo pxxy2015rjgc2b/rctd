@@ -9,7 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.struts2.ServletActionContext;
 
 import com.rctd.domain.DTO.rctd_listDTO;
-import com.rctd.domain.VO.listVO;
+import com.rctd.domain.VO.ListVO;
 import com.rctd.service.export.ExportService;
 
 import util.ExportExcelCollection;
@@ -18,7 +18,7 @@ import util.ExportExcelCollection;
 
 public class ExportAction {
 	private ExportService exportService;
-	private listVO listvo;
+	private ListVO listvo;
 	
 	public String intoMain() {
 		return "intoMain";
